@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+  <title>WebApp Security Assessment - DATAMART</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../../../../css/theme.css" />
+  <link rel="stylesheet" href="../../../../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "WebApp Security Assessment";
+    var mkdocs_page_input_path = "content-and-customization/00-adding-content/page-skwad/ex-checklist/_index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../../../../.." class="icon icon-home"> DATAMART</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Content and customization</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../_index/">Content and Customization</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">00 adding content</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../../../_index/">Adding content</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Myslide</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../myslide/">My Slide ! fullscreen</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Page images</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../page-images/_index/">images</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Page skwad</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" href="../../_index/">As a Skwad</a>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">Ex checklist</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" href="../__article-sidebar-after/">  article sidebar after</a>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" href="./">WebApp Security Assessment</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../confirm/">Thank You</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../test/">Test Form</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="#">Webappsec</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="#">Ex feedback</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../ex-feedback/_index/">Website Feedback</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="#">Ex npm</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../ex-npm/_index/">Vulnérabilité NPM</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../ex-npm/confirm/">Enregistré !</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../ex-npm/error/">Erreur !</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Page slide</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../page-slide/_index/">As a SlideDeck</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">01 homepage</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../01-homepage/_index/">Home page</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">02 navigation search</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../02-navigation-search/_index/">Navigation & Search</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Menu</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../02-navigation-search/menu/_index/">Menu</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Search</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../02-navigation-search/search/_index/">Search Engine</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Thefooter</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../02-navigation-search/thefooter/_index/">Footer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Theheader</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../02-navigation-search/theheader/_index/">Header</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Toc</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../02-navigation-search/toc/_index/">Content right bar</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">03 look and feel</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../03-look-and-feel/_index/">Look and feel</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Colors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../03-look-and-feel/colors/_index/">Colors</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Css js</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../03-look-and-feel/css-js/_index/">CSS & JS</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Disable</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../03-look-and-feel/disable/_index/">Disable features</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">04 shortcodes</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../04-shortcodes/_index/">Shortcodes</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Examples</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../../examples/_index/">Examples</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page with raw content</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../examples/page%20with%20raw%20content/_index/">A page with raw content</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page without footer</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../examples/page%20without%20footer/_index/">A page without footer</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page without header</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../examples/page%20without%20header/_index/">A page without header</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page without next page</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../examples/page%20without%20next%20page/_index/">A page without "NEXT PAGE"</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page without sidebar and toc</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../examples/page%20without%20sidebar%20and%20toc/_index/">A page without sidebar and toc</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page without toc</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../examples/page%20without%20toc/_index/">A page without table of contents</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page without any</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../examples/page-without-any/_index/">A page with only TOC and next page</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Shortcodes</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../../shortcodes/_index/">Shortcodes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Alert</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../shortcodes/alert/_index/">alert</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Attachments</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../shortcodes/attachments/_index/">attachments</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Badge</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../shortcodes/badge/_index/">badge</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Button</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../shortcodes/button/_index/">button</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Children</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../shortcodes/children/_index/">children</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../shortcodes/children/test/">page test</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Children 1</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../shortcodes/children/children-1/_index/">page 1</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="#">Children 1 1</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../shortcodes/children/children-1/children-1-1/_index/">page 1-1</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="#">Children 1 1 1</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Children 2</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../shortcodes/children/children-2/_index/">page 2</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../shortcodes/children/children-2/test3/">page test 3</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Children 3</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../shortcodes/children/children-3/_index/">page 3</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Children 4</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../shortcodes/children/children-4/_index/">page 4</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Columns</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../shortcodes/columns/_index/">columns</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Excerpt</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../shortcodes/excerpt/_index/">excerpt</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Excerpt include</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../shortcodes/excerpt-include/_index/">excerpt-include</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Expand</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../shortcodes/expand/_index/">expand</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Icon</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../shortcodes/icon/_index/">icon</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Mermaid</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../shortcodes/mermaid/_index/">mermaid</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Notice</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../shortcodes/notice/_index/">Notice</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Panel</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../shortcodes/panel/_index/">panel</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Revealjs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../shortcodes/revealjs/_index/">revealjs</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Tabs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../shortcodes/tabs/_index/">tabs</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../..">DATAMART</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Ex checklist &raquo;</li>
+        
+      
+        
+          <li>Page skwad &raquo;</li>
+        
+      
+        
+          <li>00 adding content &raquo;</li>
+        
+      
+        
+          <li>Content and customization &raquo;</li>
+        
+      
+    
+    <li>WebApp Security Assessment</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>{{%notice success%}}
+This is a demo of a <a href="{{%ref &quot;content-and-customization/00-adding-content/page-skwad&quot;%}}">skwad page</a>
+{{%/notice %}}</p>
+<h2 id="application-metadata">Application Metadata</h2>
+<p>{{%include "webappsec/01_appmetadata.md"%}}</p>
+<h2 id="vulnerability-reporting-and-management">Vulnerability Reporting and Management</h2>
+<p>{{%include "webappsec/02_vulnerabilityreporting.md"%}}</p>
+<h2 id="https-and-mixed-content-risks">HTTPS and Mixed-Content Risks</h2>
+<p>{{%include "webappsec/03_https.md"%}}</p>
+<h2 id="authentication-and-authorization">Authentication and Authorization</h2>
+<p>{{%include "webappsec/04_authz.md"%}}</p>
+<h2 id="common-web-vulnerabilities">Common Web Vulnerabilities</h2>
+<p>{{%include "webappsec/05_commonvuln.md"%}}</p>
+<h2 id="testing-qa-and-monitoring">Testing, QA, and Monitoring</h2>
+<p>{{%include "webappsec/06_testing.md"%}}</p>
+<h2 id="additional-notes">Additional Notes</h2>
+<p>Provide any additional information about the security of your application:
+{{<c/text additional_notes multi />}}</p>
+<h2 id="security-contacts">Security Contacts</h2>
+<p>List the email addresses of people we should contact about any security issues in the application:
+{{<c/text security_contacts  />}}</p>
+<h2 id="feedback">Feedback</h2>
+<p>Congratulations! You've made it to the end of this questionnaire. If you can spare another minute, please let us know how we can improve it. Your feedback is highly appreciated.
+{{<c/text feedback multi  />}}</p>
+<hr />
+<p>{{%notice info%}}
+<strong>Licence Info :</strong> this checklist was made from the VSAQ Vendor Security Assessment Questionnaire, licensed with Apache License 2.0 -- More info here : https://github.com/google/vsaq
+{{%/notice %}}</p>
+<p>{{<c/show <code>false</code> >}}</p>
+<h2 id="show">Show</h2>
+<p>{{<c/choices mychoices >}}
+* (aa) Show a block.
+* (no) Another block
+* (foo) No Block
+* (two) Show the two blocks
+{{</c/choices>}}</p>
+<h3 id="show-1">show 1</h3>
+<p>{{<c/show <code>{mychoices} == 'aa' or {mychoices} == 'two'</code> >}}
+{{%notice%}}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+{{%/notice%}}
+{{</c/show>}}</p>
+<p>{{<c/show <code>{mychoices} == 'no'  or {mychoices} == 'two'</code> >}}
+{{%alert%}}No Alert selected !{{%/alert%}}
+{{</c/show>}}</p>
+<h2 id="text">text</h2>
+<p>Quel est le code du projet ?</p>
+<p>{{<columns>}}
+<strong>Simple</strong>
+{{<c/text "app_name*" />}}
+&lt;---&gt;
+<strong>Multiple</strong>
+{{<c/text "app_name_multi*" multi >}}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. 
+{{</c/text>}}
+{{</columns>}}</p>
+<h2 id="choices">Choices</h2>
+<p>Les enjeux de sécurité ont été identifiés par la SSI ?</p>
+<p>{{<columns>}}
+<strong>Simple</strong></p>
+<p>{{<c/choices app_vulnerability >}}
+    * (yes) Yes, we have a published security email contact, or we provide another way for users to report security issues. Incoming reports are timely reviewed and triaged.
+    * (no) No, we do not currently offer a way to report security vulnerabilities for priority handling
+    * i don't know
+{{</c/choices>}}</p>
+<p>&lt;---&gt;</p>
+<p><strong>Multiple</strong></p>
+<p>{{<c/choices app_vulnerabilitymulti multi >}}
+    * (yes) Yes, we have a published security email contact, or we provide another way for users to report security issues. Incoming reports are timely reviewed and triaged.
+    * (no) No, we do not currently offer a way to report security vulnerabilities for priority handling
+    * i don't know
+{{</c/choices>}}
+{{</columns>}}</p>
+<p>{{<c/show <code>{app_vulnerability} == 'no' and {app_vulnerabilitymulti}  has 'no'</code> >}}
+{{%alert danger%}}OK !{{%/alert%}}
+{{</c/show>}}</p>
+<h2 id="list">List</h2>
+<p>{{<columns>}}
+<strong>Simple</strong>
+{{<c/list select_from_list >}}
+    * (czero) C0
+    * (cun) C1
+    * (cdeux) C2
+{{</c/list >}}</p>
+<p>&lt;---&gt;</p>
+<p><strong>Multiple</strong>
+{{<c/list multiselect multi >}}
+    * All
+    * (czero) C0
+    * (cun) C1
+    * (cdeux) C2
+{{</c/list >}}
+{{</columns>}}</p>
+<h2 id="checkbox">Checkbox</h2>
+<p>{{%c/check mycheck %}}J'ai tout compris 1{{%/c/check %}}</p>
+<h2 id="switch">switch</h2>
+<p>{{%c/switch myswitch %}}Activer le truc{{%/c/switch %}}</p>
+<h2 id="code">Code</h2>
+<p>{{%expand%}}
+Change on any element form</p>
+<pre><code class="language-js">    var form = document.querySelector('form');
+    form.addEventListener('change', function(e,v) {
+        console.log(&quot;element changed&quot;, e.target,v)
+    });
+
+````
+
+Get all data
+```js
+    $(&quot;form[name=myform]&quot;).serializeArray()
+</code></pre>
+<p>Download file :
+* date
+* ref
+* url
+* data
+* hash or signature</p>
+<pre><code class="language-js">function downloadFile() {
+    var obj = {a: 123, b: &quot;4 5 6&quot;};
+    var filename = &quot;download.json&quot;;
+    var blob = new Blob([JSON.stringify(obj)], {type: 'text/plain'});
+    if (window.navigator &amp;&amp; window.navigator.msSaveOrOpenBlob) {
+        window.navigator.msSaveOrOpenBlob(blob, filename);
+    } else{
+        var e = document.createEvent('MouseEvents'),
+        a = document.createElement('a');
+        a.download = filename;
+        a.href = window.URL.createObjectURL(blob);
+        a.dataset.downloadurl = ['text/plain', a.download, a.href].join(':');
+        e.initEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        a.dispatchEvent(e);
+    }
+}
+````
+
+load file 1 :
+```js
+input.addEventListener('change', () =&gt; { 
+    let files = input.files; 
+
+    if (files.length == 0) return; 
+
+    /* If any further modifications have to be made on the 
+       Extracted text. The text can be accessed using the  
+       file variable. But since this is const, it is a read  
+       only variable, hence immutable. To make any changes,  
+       changing const to var, here and In the reader.onload  
+       function would be advisible */
+    const file = files[0]; 
+
+    let reader = new FileReader(); 
+
+    reader.onload = (e) =&gt; { 
+        const file = e.target.result; 
+
+        // This is a regular expression to identify carriage  
+        // Returns and line breaks 
+        const lines = file.split(/\r\n|\n/); 
+        textarea.value = lines.join('\n'); 
+
+    }; 
+
+    reader.onerror = (e) =&gt; alert(e.target.error.name); 
+
+    reader.readAsText(file); 
+}); 
+````
+
+load file 2 :
+```js
+function onFileLoad(elementId, event) {
+    document.getElementById(elementId).innerText = event.target.result;
+}
+
+function onChooseFile(event, onLoadFileHandler) {
+    if (typeof window.FileReader !== 'function')
+        throw (&quot;The file API isn't supported on this browser.&quot;);
+    let input = event.target;
+    if (!input)
+        throw (&quot;The browser does not properly implement the event object&quot;);
+    if (!input.files)
+        throw (&quot;This browser does not support the `files` property of the file input.&quot;);
+    if (!input.files[0])
+        return undefined;
+    let file = input.files[0];
+    let fr = new FileReader();
+    fr.onload = onLoadFileHandler;
+    fr.readAsText(file);
+}
+</code></pre>
+<pre><code class="language-html">&lt;input type='file' onchange='onChooseFile(event, onFileLoad.bind(this, &quot;contents&quot;))' /&gt;
+&lt;p id=&quot;contents&quot;&gt;&lt;/p&gt;
+</code></pre>
+<p>{{%/expand%}}
+{{</c/show>}}</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../confirm/" class="btn btn-neutral float-right" title="Thank You">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../__article-sidebar-after/" class="btn btn-neutral" title="  article sidebar after"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../__article-sidebar-after/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../confirm/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../../../../..';</script>
+    <script src="../../../../../js/theme.js" defer></script>
+      <script src="../../../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

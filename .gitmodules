@@ -1,0 +1,9 @@
+[submodule "quickstart/themes/book"]
+	path = quickstart/themes/book
+	url = https://github.com/alex-shpak/hugo-book
+[submodule "quickstart/themes/hugo-theme-techdoc"]
+	path = quickstart/themes/hugo-theme-techdoc
+	url = https://github.com/thingsym/hugo-theme-techdoc.git
+[submodule "quickstart/themes/hugo-theme-docport"]
+	path = quickstart/themes/hugo-theme-docport
+	url = https://github.com/vjeantet/hugo-theme-docport.git

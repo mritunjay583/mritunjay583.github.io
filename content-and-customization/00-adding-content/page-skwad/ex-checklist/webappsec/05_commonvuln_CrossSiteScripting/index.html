@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../../../../../img/favicon.ico">
+  <title>05 commonvuln CrossSiteScripting - DATAMART</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../../../../../css/theme.css" />
+  <link rel="stylesheet" href="../../../../../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "05 commonvuln CrossSiteScripting";
+    var mkdocs_page_input_path = "content-and-customization/00-adding-content/page-skwad/ex-checklist/webappsec/05_commonvuln_CrossSiteScripting.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../../../../../.." class="icon icon-home"> DATAMART</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Content and customization</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../../_index/">Content and Customization</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">00 adding content</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../../../../_index/">Adding content</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Myslide</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../myslide/">My Slide ! fullscreen</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Page images</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../page-images/_index/">images</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Page skwad</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" href="../../../_index/">As a Skwad</a>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">Ex checklist</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" href="../../__article-sidebar-after/">  article sidebar after</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../_index/">WebApp Security Assessment</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../confirm/">Thank You</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../test/">Test Form</a>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" href="#">Webappsec</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="#">Ex feedback</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../ex-feedback/_index/">Website Feedback</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="#">Ex npm</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../ex-npm/_index/">Vulnérabilité NPM</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../ex-npm/confirm/">Enregistré !</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../ex-npm/error/">Erreur !</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Page slide</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../page-slide/_index/">As a SlideDeck</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">01 homepage</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../01-homepage/_index/">Home page</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">02 navigation search</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../02-navigation-search/_index/">Navigation & Search</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Menu</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../02-navigation-search/menu/_index/">Menu</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Search</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../02-navigation-search/search/_index/">Search Engine</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Thefooter</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../02-navigation-search/thefooter/_index/">Footer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Theheader</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../02-navigation-search/theheader/_index/">Header</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Toc</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../02-navigation-search/toc/_index/">Content right bar</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">03 look and feel</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../03-look-and-feel/_index/">Look and feel</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Colors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../03-look-and-feel/colors/_index/">Colors</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Css js</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../03-look-and-feel/css-js/_index/">CSS & JS</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Disable</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../03-look-and-feel/disable/_index/">Disable features</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">04 shortcodes</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../04-shortcodes/_index/">Shortcodes</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Examples</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../../../examples/_index/">Examples</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page with raw content</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/page%20with%20raw%20content/_index/">A page with raw content</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page without footer</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/page%20without%20footer/_index/">A page without footer</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page without header</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/page%20without%20header/_index/">A page without header</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page without next page</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/page%20without%20next%20page/_index/">A page without "NEXT PAGE"</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page without sidebar and toc</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/page%20without%20sidebar%20and%20toc/_index/">A page without sidebar and toc</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page without toc</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/page%20without%20toc/_index/">A page without table of contents</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page without any</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/page-without-any/_index/">A page with only TOC and next page</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Shortcodes</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../../../shortcodes/_index/">Shortcodes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Alert</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/alert/_index/">alert</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Attachments</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/attachments/_index/">attachments</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Badge</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/badge/_index/">badge</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Button</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/button/_index/">button</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Children</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/children/_index/">children</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/children/test/">page test</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Children 1</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../shortcodes/children/children-1/_index/">page 1</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="#">Children 1 1</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../shortcodes/children/children-1/children-1-1/_index/">page 1-1</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="#">Children 1 1 1</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Children 2</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../shortcodes/children/children-2/_index/">page 2</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../shortcodes/children/children-2/test3/">page test 3</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Children 3</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../shortcodes/children/children-3/_index/">page 3</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Children 4</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../shortcodes/children/children-4/_index/">page 4</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Columns</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/columns/_index/">columns</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Excerpt</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/excerpt/_index/">excerpt</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Excerpt include</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/excerpt-include/_index/">excerpt-include</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Expand</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/expand/_index/">expand</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Icon</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/icon/_index/">icon</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Mermaid</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/mermaid/_index/">mermaid</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Notice</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/notice/_index/">Notice</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Panel</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/panel/_index/">panel</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Revealjs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/revealjs/_index/">revealjs</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Tabs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/tabs/_index/">tabs</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../..">DATAMART</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Webappsec &raquo;</li>
+        
+      
+        
+          <li>Ex checklist &raquo;</li>
+        
+      
+        
+          <li>Page skwad &raquo;</li>
+        
+      
+        
+          <li>00 adding content &raquo;</li>
+        
+      
+        
+          <li>Content and customization &raquo;</li>
+        
+      
+    
+    <li>05 commonvuln CrossSiteScripting</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><a href="https://www.owasp.org/index.php/XSS">Cross-site scripting</a> (or XSS for short) occurs when an application redisplays insufficiently sanitized user input in the context of the application's origin (as defined by the <a href="http://code.google.com/p/browsersec/wiki/Part2#Same-origin_policy">same-origin policy</a>). 
+If the user input contains certain kinds of scripting code, it may read or alter the DOM of the current page when redisplayed.\
+In many cases, XSS is used to steal users' cookies or other application-related data, but it may also be used for phishing attacks, or even to deface the web page. \
+Unfortunately, XSS is one of the most common security issues in web applications, and due to browser quirks and other factors, quite hard to protect against. </p>
+<p><strong>Select the statements that describe your strategy:</strong>
+{{<c/choices webvuln_xss_strategies  multi >}}
+* (templating) We use a templating system that automatically escapes all user input before redisplaying it.
+* (chokepoint) Our application has a central choke point where all user input is validated and escaped, depending on the context in which it will be interpreted.
+* (perpage) Some of the pages (or all of them) escape user input.
+* (other) We are using some other technique to protect against XSS.
+* (sanitization) Part of the application deals with user-provided HTML that is sanitized and re-displayed to the user.
+{{</c/choices >}}</p>
+<p>{{<c/show <code>!({webvuln_xss_strategies} has 'templating') and !({webvuln_xss_strategies} has 'chokepoint') and !({webvuln_xss_strategies} has 'perpage') and !({webvuln_xss_strategies} has 'other') and !({webvuln_xss_strategies} has 'sanitization')</code> >}}
+{{%notice warning%}}
+<strong>Warning — possible medium-risk issue</strong>\
+\
+You didn't select a strategy for protecting against cross-site scripting.\
+\
+<strong>Explain why:</strong>
+{{<c/text "webvuln_xss_strategies_no_details" multi />}}
+{{%/notice%}}
+{{</c/show >}}</p>
+<p>{{<c/show <code>{webvuln_xss_strategies} has 'templating'</code> >}}
+{{%notice%}}
+<strong>Tip</strong>\
+\
+Using a templating system to escape user input is a good way to protect against XSS. But be careful with directives that disable automatic escaping, and watch for the direct display of user input (for example, in error messages). Additionally, be aware of the context in which user input is used in templates. Not all templating systems automatically understand that different escaping may be required, depending on where in the application the user input is displayed. For example, many templating systems would not correctly escape a construct such as <code>&amp;gt;a href=\"{{ user_input }}\"&amp;lt;</code>, where a user could supply <code>javascript:alert(/xss/)</code> as user_input. We recommend using a context-sensitive templating system.
+{{%/notice%}}
+{{</c/show >}}</p>
+<p>{{<c/show <code>{webvuln_xss_strategies} has 'chokepoint'</code> >}}
+{{%notice%}}
+<strong>Tip</strong>\
+\
+A central choke point for validating and escaping user input is generally a good way to protect against XSS. But make sure your application identifies the context in which the user input is being used; otherwise, it might still be possible to smuggle in JavaScript through user input. You might also want to consider using a context-sensitive templating system, to address this issue automatically.
+{{%/notice%}}
+{{</c/show >}}</p>
+<p>{{<c/show <code>{webvuln_xss_strategies} has 'perpage' and !({webvuln_xss_strategies} has 'templating') and !({webvuln_xss_strategies} has 'chokepoint')</code> >}}
+{{%notice warning%}}
+<strong>Warning — possible medium-risk issue</strong>\
+\
+Escaping user input on each page individually is a fairly dangerous strategy: it's very easy to miss something. We recommend using a templating system that automatically escapes user input, ideally in a context-sensitive fashion. Some examples are listed below. Note that not all of these are context-sensitive, so you may still need to do manual escaping (or explicitly tag a variable in the template) when the context is something other than HTML.\
+* <a href="https://www.djangoproject.com/">Django</a> (Python)
+* <a href="http://code.google.com/p/ctemplate/?redir=1">Google</a> CTemplates (C++)
+* <a href="http://code.google.com/p/jsilver/">Jsilver</a> (Java)
+* <a href="https://developers.google.com/closure/templates/">Closure/Soy</a> (Javascript, Java)
+* <a href="http://jquery.com/">JQuery</a> (JavaScript)
+* <a href="http://www.smarty.net/">Smarty</a> (PHP)
+{{%/notice%}}
+{{</c/show >}}</p>
+<p>{{<c/show <code>{webvuln_xss_strategies} has 'other'</code> >}}
+<strong>Describe your strategy for protecting against XSS vulnerabilities:</strong>
+{{<c/text "webvuln_xss_strategies_other_details" multi />}}
+{{</c/show >}}</p>
+<p>{{<c/show <code>{webvuln_xss_strategies} has 'sanitization'</code> >}}
+{{%notice warning%}}
+<strong>Warning — possible medium-risk issue</strong>\
+\
+Unfortunately, due to error-correcting behavior and browser quirks, getting HTML sanitization right is very difficult. The sanitization code has to build an in-memory representation of the DOM, and then serialize that to a known-safe format. Some libraries do this correctly, so we highly recommended using a well-tested library.\
+\
+<strong>Describe how your application deals with HTML sanitization:</strong>
+{{<c/text "webvuln_xss_strategies_sanitization_details" multi />}}
+{{%/notice%}}
+{{</c/show >}}</p>
+<p><strong>In addition to applying the strategies you've identified, does the application set a valid and appropriate content type and character set for each page (in the <code>Content-Type</code> HTTP header)?</strong>
+{{<c/choices webvuln_xss_content_type >}}
+* (handled) Yes, we take great care to set this, knowing that otherwise we might be introducing XSS vulnerabilities.
+* (no) I'm not sure all pages set an appropriate content type.
+{{</c/choices >}}</p>
+<p>{{<c/show <code>{webvuln_xss_content_type} == 'no'</code> >}}
+{{%notice warning%}}
+<strong>Warning — possible medium-risk issue</strong>\
+\
+Not setting both a content type and a character set often leads to cross-site scripting vulnerabilities. For example, if the application outputs JSON but sets the content type to text/html, this might result in XSS because JavaScript/JSON escaping is different from HTML escaping. We recommend that you thoroughly audit your code for pages that don't set the content type correctly.\
+\
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:</strong>
+{{<c/text "webvuln_xss_content_type_no_details" multi />}}
+{{%/notice%}}
+{{</c/show >}}</p>
+<p>{{<c/show <code>{webvuln} has 'upload'</code> >}}
+<strong>Earlier, you noted that the application has a file upload feature. Does the application allow other users (or administrators) to access the files that are uploaded?</strong>
+{{<c/choices webvuln_xss_fileupload >}}
+* (yes) Yes, this is a feature of our application.
+* (no) No, uploaded files are processed but can't be downloaded again.
+{{</c/choices >}}
+{{</c/show >}}</p>
+<p>{{<c/show <code>{webvuln_xss_fileupload} == 'yes'</code> >}}
+{{%notice warning%}}
+<strong>Warning — possible medium-risk issue</strong>\
+\
+Hosting and serving user-provided content is almost guaranteed to introduce XSS vulnerabilities. Because of various browser quirks, countermeasures (such as setting a <code>Content-Disposition: attachment</code> header) do not provide full protection. We recommend serving user-provided content on a domain separate from all domains that have authentication cookies. However, this approach introduces another problem, if access to the content is intended to be authenticated. You can solve this by using short-lived random tokens, or by serving each document from a separate domain. If you use the latter approach, each domain should have a unique set of authentication cookies, valid only for the one document that's served from the domain.\
+\
+<strong>Describe your strategy for protecting against XSS vulnerabilities introduced by serving user-provided content:</strong>
+{{<c/text "webvuln_xss_fileupload_yes_details" multi />}}
+{{%/notice%}}
+{{</c/show >}}</p>
+<p><strong>Some XSS vulnerabilities work exclusively on the client side, in an application's scripting code. This kind of XSS is commonly referred to as <a href="https://www.owasp.org/index.php/DOM_Based_XSS">DOM-based XSS</a>. Because server-side escaping of user input does not protect against DOM-based XSS, you need a strategy for dealing with client-side scripting code that handles user input, as well as parts of the DOM that may contain user input (such as document.location).</strong>
+{{<c/choices webvuln_xss_dombased >}}
+* (handled) We know about DOM-based XSS, and we take specific steps to protect against this kind of vulnerability.
+* (no) It may be possible that something slipped through the cracks and our application has DOM-based XSS vulnerabilities.
+{{</c/choices >}}</p>
+<p>{{<c/show <code>{webvuln_xss_dombased} == 'no'</code> >}}
+{{%notice warning%}}
+<strong>Warning — possible medium-risk issue</strong>\
+\
+We recommend that you thoroughly audit your code for DOM-based XSS vulnerabilities, and put procedures in place so that future code is also protected.\
+\
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:</strong>
+{{<c/text "webvuln_xss_dombased_no_details" multi />}}
+{{%/notice%}}
+{{</c/show >}}</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../05_commonvuln_FileUploads/" class="btn btn-neutral float-right" title="05 commonvuln FileUploads">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../05_commonvuln_BrowserPlugins/" class="btn btn-neutral" title="05 commonvuln BrowserPlugins"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../05_commonvuln_BrowserPlugins/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../05_commonvuln_FileUploads/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../../../../../..';</script>
+    <script src="../../../../../../js/theme.js" defer></script>
+      <script src="../../../../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

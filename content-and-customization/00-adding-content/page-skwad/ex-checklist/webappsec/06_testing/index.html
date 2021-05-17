@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../../../../../img/favicon.ico">
+  <title>06 testing - DATAMART</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../../../../../css/theme.css" />
+  <link rel="stylesheet" href="../../../../../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "06 testing";
+    var mkdocs_page_input_path = "content-and-customization/00-adding-content/page-skwad/ex-checklist/webappsec/06_testing.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../../../../../.." class="icon icon-home"> DATAMART</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Content and customization</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../../_index/">Content and Customization</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">00 adding content</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../../../../_index/">Adding content</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Myslide</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../myslide/">My Slide ! fullscreen</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Page images</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../page-images/_index/">images</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Page skwad</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" href="../../../_index/">As a Skwad</a>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">Ex checklist</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" href="../../__article-sidebar-after/">  article sidebar after</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../_index/">WebApp Security Assessment</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../confirm/">Thank You</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../test/">Test Form</a>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" href="#">Webappsec</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="#">Ex feedback</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../ex-feedback/_index/">Website Feedback</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="#">Ex npm</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../ex-npm/_index/">Vulnérabilité NPM</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../ex-npm/confirm/">Enregistré !</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../ex-npm/error/">Erreur !</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Page slide</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../page-slide/_index/">As a SlideDeck</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">01 homepage</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../01-homepage/_index/">Home page</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">02 navigation search</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../02-navigation-search/_index/">Navigation & Search</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Menu</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../02-navigation-search/menu/_index/">Menu</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Search</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../02-navigation-search/search/_index/">Search Engine</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Thefooter</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../02-navigation-search/thefooter/_index/">Footer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Theheader</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../02-navigation-search/theheader/_index/">Header</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Toc</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../02-navigation-search/toc/_index/">Content right bar</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">03 look and feel</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../03-look-and-feel/_index/">Look and feel</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Colors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../03-look-and-feel/colors/_index/">Colors</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Css js</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../03-look-and-feel/css-js/_index/">CSS & JS</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Disable</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../03-look-and-feel/disable/_index/">Disable features</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">04 shortcodes</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../04-shortcodes/_index/">Shortcodes</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Examples</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../../../examples/_index/">Examples</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page with raw content</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/page%20with%20raw%20content/_index/">A page with raw content</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page without footer</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/page%20without%20footer/_index/">A page without footer</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page without header</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/page%20without%20header/_index/">A page without header</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page without next page</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/page%20without%20next%20page/_index/">A page without "NEXT PAGE"</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page without sidebar and toc</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/page%20without%20sidebar%20and%20toc/_index/">A page without sidebar and toc</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page without toc</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/page%20without%20toc/_index/">A page without table of contents</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Page without any</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/page-without-any/_index/">A page with only TOC and next page</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Shortcodes</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../../../shortcodes/_index/">Shortcodes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Alert</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/alert/_index/">alert</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Attachments</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/attachments/_index/">attachments</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Badge</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/badge/_index/">badge</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Button</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/button/_index/">button</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Children</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/children/_index/">children</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/children/test/">page test</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Children 1</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../shortcodes/children/children-1/_index/">page 1</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="#">Children 1 1</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../shortcodes/children/children-1/children-1-1/_index/">page 1-1</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="#">Children 1 1 1</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Children 2</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../shortcodes/children/children-2/_index/">page 2</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../shortcodes/children/children-2/test3/">page test 3</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Children 3</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../shortcodes/children/children-3/_index/">page 3</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Children 4</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../shortcodes/children/children-4/_index/">page 4</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Columns</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/columns/_index/">columns</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Excerpt</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/excerpt/_index/">excerpt</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Excerpt include</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/excerpt-include/_index/">excerpt-include</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Expand</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/expand/_index/">expand</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Icon</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/icon/_index/">icon</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Mermaid</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/mermaid/_index/">mermaid</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Notice</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/notice/_index/">Notice</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Panel</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/panel/_index/">panel</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Revealjs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/revealjs/_index/">revealjs</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Tabs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../shortcodes/tabs/_index/">tabs</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../..">DATAMART</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Webappsec &raquo;</li>
+        
+      
+        
+          <li>Ex checklist &raquo;</li>
+        
+      
+        
+          <li>Page skwad &raquo;</li>
+        
+      
+        
+          <li>00 adding content &raquo;</li>
+        
+      
+        
+          <li>Content and customization &raquo;</li>
+        
+      
+    
+    <li>06 testing</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Security testing can be part of standard application tests. Here are some examples:</p>
+<ul>
+<li><strong>Simple unit tests</strong>: Unit tests are typically used to confirm that the basic building blocks of the application work as expected. Unit tests are easy to repeat — they can run whenever new code is checked into the repository, to confirm that the code still behaves as expected. Unit tests can also check for security features. For example, they can be used to confirm that requests fail without XSRF tokens; that authentication is required to access user data; or that unexpected HTML tags can't get through input filters or escaping routines.</li>
+<li><strong>Release testing</strong>: Before a new version of a product is released, human testers typically go through the application, try the new features, and make sure previous features still work correctly (regression testing). Security testing should be included in this process as well. For example, release testing is a great time to verify that user A cannot access the data of user B.</li>
+<li><strong>Monitoring</strong>: Once the application is deployed, the focus usually shifts from testing to monitoring. Watch out for unexpected spikes in error rates, sandbox violations, and other flaky or inexplicable behavior (including intermittent test failures) — and before you dismiss an anomaly, check with your security team. Crashes and flakiness can indicate a race condition or a memory corruption bug.</li>
+</ul>
+<p>The next few questions assess the testing and monitoring of your application.</p>
+<p><strong>Are you using unit tests or similar methods?</strong>
+{{<c/choices application_testing_unit >}}
+* (yes) Yes
+* (no) No
+{{</c/choices >}}</p>
+<p>{{<c/show <code>{application_testing_unit} == 'yes'</code> >}}</p>
+<h3 id="unit-testing">Unit Testing</h3>
+<p><strong>How would you describe the code coverage of your unit tests?</strong>
+{{<c/choices application_testing_unit_coverage >}}
+* (large) Robust - The vast majority of our code is tested through unit tests; code coverage is at least &gt;80%.
+* (med) Weak - We have some unit testing, but much of the code is not tested.
+* (small) Nonexistent - We have no (or almost no) unit tests.
+{{</c/choices >}}
+{{<c/show <code>{application_testing_unit_coverage} == 'med' or {application_testing_unit_coverage} == 'small'</code> >}}
+{{%notice warning%}}
+<strong>Warning — possible medium-risk issue</strong>\
+\
+Unit tests have become quasi-standard for testing the functionality of software at a low level. Although this questionnaire focuses on security, the functional correctness of the application is also important. Particularly for web applications, where it is difficult (often impossible) to fall back to a previous version, functional bugs can cause problems with both integrity and availability. Consider implementing unit tests.\
+\
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:</strong>
+{{<c/text "application_testing_unit_coverage_low_conpensating_controls" multi />}}
+{{%/notice%}}
+{{</c/show >}}</p>
+<p>{{<c/show <code>{application_testing_unit_coverage} == 'med' or {application_testing_unit_coverage} == 'large'</code> >}}
+<strong>Do you have special unit tests in place for testing the security of your code? For example, unit tests can be used to do the following:</strong>
+* Verify that XSRF tokens are required for all state-changing actions
+* Confirm that user input is correctly escaped and/or sanitized
+* Check that the application enforces access control (e.g., user A doesn't have access to user B's data)
+{{<c/choices application_testing_unit_security >}}
+* (yes) Yes
+* (no) No
+{{</c/choices >}}
+{{<c/show <code>{application_testing_unit_security} == 'no'</code> >}}
+{{%notice warning%}}
+<strong>Warning — possible medium-risk issue</strong>\
+\
+Scalable security depends on engineers doing their part — and common-sense, low-overhead unit tests are one of the most cost-efficient defenses available. Unit tests can help validate security parameters and avoid regressions that reintroduce security bugs. We strongly recommend including security checks in your unit tests.\
+\
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:</strong>
+{{<c/text "application_testing_unit_security_no_conpensating_controls" multi />}}
+{{%/notice%}}
+{{</c/show >}}</p>
+<p>{{</c/show >}} <!-- Do you have special unit tests in place for testing --></p>
+<p>{{</c/show >}} <!-- Unit Testing --></p>
+<p><strong>Do your engineers and your QA team look for potential security issues during release testing, and have they been trained to do so?</strong>
+{{<c/choices application_testing_qa_security >}}
+* (yes) Yes, our QA process explicitly includes testing for security issues that might have been introduced in the new version.
+* (no) This is an area where we have some room for improvement.
+{{</c/choices >}}
+{{<c/show <code>{application_testing_qa_security} == 'no'</code> >}}
+{{%notice warning%}}
+<strong>Warning — possible medium-risk issue</strong>\
+\
+Your engineering and QA teams are in the best position to understand how all parts of the application work, what has changed since the previous iteration, and how the changes might introduce security vulnerabilities. Release testing is typically done under considerable time pressure, but it's the last chance to catch security vulnerabilities internally. When your teams are already focused on testing, adding a few security tests won't increase the effort by much.\
+\
+Engineers and testers who have been trained to look for security issues can make all the difference between a secure product and a serious vulnerability.\
+\
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:</strong>
+{{<c/text "application_testing_qa_security_no_conpensating_controls" multi />}}
+{{%/notice%}}
+{{</c/show >}}</p>
+<h3 id="post-launch-monitoring">Post-Launch Monitoring</h3>
+<p><strong>How would you describe your post-launch monitoring?</strong>
+{{<c/choices application_monitoring >}}
+* (robust) Robust - We have procedures in place to log and monitor for unexpected crashes, exceptions, and other error conditions. If something looks suspicious, a security-conscious engineer evaluates it.
+* (weak) Weak - If something goes terribly wrong, such as massive spikes in crash rates or other large-scale anomalies, we will probably notice. But our monitoring is fairly coarse, and there is room for improvement.
+* (none) Nonexistent - At the moment, we are not doing any kind of post-release monitoring that looks for signs of exploitation or increases in crashes/exceptions.
+{{</c/choices >}}
+{{<c/show <code>{application_monitoring} == 'robust'</code> >}}
+{{%notice%}}
+<strong>Tip</strong>\
+\
+Thank you for putting effort into post-launch monitoring. Exceptions often indicate an underlying security problem, and close monitoring goes a long way toward quickly identifying and subsequently fixing vulnerabilities.
+{{%/notice%}}
+{{</c/show >}}</p>
+<p>{{<c/show <code>{application_monitoring} == 'weak' or {application_monitoring} == 'none'</code> >}}
+{{%notice warning%}}
+<strong>Warning — possible medium-risk issue</strong>\
+\
+Exceptions and crashes often indicate an underlying security problem. Monitoring the deployed application can go a long way toward quickly identifying and subsequently fixing vulnerabilities. In carefully designed software products, exceptions should be a fairly rare occurrence; it therefore usually does not introduce significant overhead to monitor for them.\
+\
+<strong>If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:</strong>
+{{<c/text "application_monitoring_weak_compensating_controls" multi />}}
+{{%/notice%}}
+{{</c/show >}}</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../../ex-feedback/_index/" class="btn btn-neutral float-right" title="Website Feedback">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../05_commonvuln_UseofCryptography/" class="btn btn-neutral" title="05 commonvuln UseofCryptography"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../05_commonvuln_UseofCryptography/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../../ex-feedback/_index/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../../../../../..';</script>
+    <script src="../../../../../../js/theme.js" defer></script>
+      <script src="../../../../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
