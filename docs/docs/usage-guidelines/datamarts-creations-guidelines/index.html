@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DataMarts Creation/Updation in DMDB #  Why use datamarts and not access data directly with full SQL from application (the widely/mostly known acceptable way) #   Reusability - With each metric anyone writes it is contributed to Org and will be available to use for others. Numerous users do not have to write same query again. Standard Of metrics definition - When a metric calculation in a single way Org wide, it will be easier to standardize the definition for that metric.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="datamart creation guidelines" />
+<meta property="og:description" content="DataMarts Creation/Updation in DMDB #  Why use datamarts and not access data directly with full SQL from application (the widely/mostly known acceptable way) #   Reusability - With each metric anyone writes it is contributed to Org and will be available to use for others. Numerous users do not have to write same query again. Standard Of metrics definition - When a metric calculation in a single way Org wide, it will be easier to standardize the definition for that metric." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://mritunjay583.github.io/docs/docs/usage-guidelines/datamarts-creations-guidelines/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2019-03-26T08:47:11&#43;01:00" />
+<meta property="article:modified_time" content="2019-03-26T08:47:11&#43;01:00" />
+
+<title>datamart creation guidelines | DATAMART</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e246e6a45b940b6ff71d8216783f10a80d910290a7c364c8bfd5d305d8545d62.css" integrity="sha256-4kbmpFuUC2/3HYIWeD8QqA2RApCnw2TIv9XTBdhUXWI=">
+<script defer src="/en.search.min.04dea4370b56e4f2b68a0b04d656bed9137be5574171370858866b5246cce744.js" integrity="sha256-BN6kNwtW5PK2igsE1la&#43;2RN75VdBcTcIWIZrUkbM50Q="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>DATAMART</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6d87ea0de7b98d214d87150d1024f51e" class="toggle" checked />
+    <label for="section-6d87ea0de7b98d214d87150d1024f51e" class="flex justify-between">
+      <a href="http://mritunjay583.github.io/docs/docs/" class="">Docs</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-76e70ba71162eb688a4952e5576fd6b7" class="toggle"  />
+    <label for="section-76e70ba71162eb688a4952e5576fd6b7" class="flex justify-between">
+      <a href="http://mritunjay583.github.io/docs/docs/developer/" class="">Developer</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/db-design-solution-hld/" class="">Db-Design-Solution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/db-design-use-case-problem-analysis/" class="">db-design-use-case-problem-analysis</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/documentation-publish/" class="">documentation publish</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/outcomes-limitations-support/" class="">outcomes limitations support</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/roadmap/" class="">Roadmap</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e9be04ad509fc93ce902011efeae48af" class="toggle" checked />
+    <label for="section-e9be04ad509fc93ce902011efeae48af" class="flex justify-between">
+      <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/" class="">Usage Guidelines</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/create-indexes-in-dmdb-guidlines/" class="">create index in dmdb</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/datamarts-creations-guidelines/" class=" active">datamart creation guidelines</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/dmdb-usage-guide/" class="">dmdb usage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/metric_table-design-and-usage/" class="">metric table design</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/navigation-around-views-and-tables/" class="">navigation-around-views-and-tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/api/offset-management-apis-usage/" class="">Offset management</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/programmatic-access-and-integration/" class="">programmatic access and Integration</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>datamart creation guidelines</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#datamarts-creationupdation-in-dmdb">DataMarts Creation/Updation in DMDB</a>
+      <ul>
+        <li></li>
+        <li><a href="#schemas-in-datamarts-that-users-should-be-aware-of">Schemas in Datamarts that users should be aware of</a></li>
+        <li><a href="#datamart-access-interfaces-in-_dm_-schema-and-_user_schema_">Datamart Access Interfaces in <em>dm</em> schema and <em>{user_schema}</em></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="datamarts-creationupdation-in-dmdb">
+  DataMarts Creation/Updation in DMDB
+  <a class="anchor" href="#datamarts-creationupdation-in-dmdb">#</a>
+</h2>
+<h4 id="why-use-datamarts-and-not-access-data-directly-with-full-sql-from-application-the-widelymostly-known-acceptable-way">
+  Why use datamarts and not access data directly with full SQL from application (the widely/mostly known acceptable way)
+  <a class="anchor" href="#why-use-datamarts-and-not-access-data-directly-with-full-sql-from-application-the-widelymostly-known-acceptable-way">#</a>
+</h4>
+<ol>
+<li>Reusability - With each metric anyone writes it is contributed to Org and will be available to use for others.
+Numerous users do not have to write same query again.</li>
+<li>Standard Of metrics definition - When a metric calculation in a single way Org wide, it will be easier to standardize the definition
+for that metric.</li>
+<li>Democratization -
+<ol>
+<li>Security
+<ol>
+<li>Auditing - Who is currently accessing what. Is that allowed?</li>
+<li>Logging - Logging of database errors with User level information to identify the wrongdoers fast</li>
+<li>Logical isolation - Isolation of schemas (aka namespaces) shows the user only those datasets that the user is authorized to do so</li>
+</ol>
+</li>
+<li>Privilege Control - Who has access to what datamarts,  how many columns</li>
+</ol>
+</li>
+</ol>
+<h3 id="schemas-in-datamarts-that-users-should-be-aware-of">
+  Schemas in Datamarts that users should be aware of
+  <a class="anchor" href="#schemas-in-datamarts-that-users-should-be-aware-of">#</a>
+</h3>
+<ol>
+<li>
+<p>raw_u (aka <strong>base datamart</strong>)  - It contains the data at raw level, all columns, unfiltered. The _u means the columns names are separated by undescore.</p>
+<p>Example cs_ud, cs_sd
+The columns which already has underscore in them stays the same. Eg. trip_uuid</p>
+</li>
+<li>
+<p>raw_d (aka <strong>base datamart</strong>)  - It contains the data at raw level, all columns, unfiltered. The _d means the columns names are separated by dot.</p>
+<p>Example cs.ud, cs.sd, action_date,
+The dot convention is usually for data which comes from mongoDB.</p>
+</li>
+<li>
+<p>dm (aka <strong>datamart / intermediate datamart</strong>) - It contains all the datamarts that the dmdb has and is supposed to be the primary knowledgebase of datamart.
+This is the schema which will be <strong>visible in Data Catalog</strong>.
+Every datamart is either getting data from raw* or from another datamart from the same schema.</p>
+</li>
+<li>
+<p>{user_schema} eg. stm, eye (aka <strong>exposed datamart</strong>) - It&rsquo;s the schema which is visible to the same named user.
+This schema is exposed to application/backend/dashboard and should be queried by connecting to database programmatically with the username and password.
+Eg The stm user will query data for stm dashboard and only stm schema is visible to that user.</p>
+<p>Why we need the {user_schema} -</p>
+<ol>
+<li>It gives control on whom can data access how much data from dm schema.</li>
+<li>Logical layer separation gives debuggability with better audit logging</li>
+<li>When the underlying datamart changes its definition, this layer protects the stm user query by providing backward compatibility, control on number of columns, order of columns etc. so no application code changes/releases.</li>
+<li>Reduces the error vulnerability since the stm user can only access datamarts under it&rsquo;s own schema only</li>
+<li>Ability to customize or tweak the metric specifically for a particular dashboard</li>
+</ol>
+</li>
+<li>
+<p>metrics - This is schema which stores all the pre-calculated metrics of historical data. Only materialized historical metrics
+are suppposed to be stored.</p>
+</li>
+</ol>
+<h3 id="datamart-access-interfaces-in-_dm_-schema-and-_user_schema_">
+  Datamart Access Interfaces in <em>dm</em> schema and <em>{user_schema}</em>
+  <a class="anchor" href="#datamart-access-interfaces-in-_dm_-schema-and-_user_schema_">#</a>
+</h3>
+<p>For every widget there has to be <strong>TWO</strong> datamart access interfaces -</p>
+<ol>
+<li>
+<p><strong>LIVE</strong> datamart access interface -</p>
+<ol>
+<li>It is based on runtime calculation/computation of the logic/query.</li>
+<li>Since this executed eachtime, it is supposed to be used for only a small window of data to get output in milliseconds.</li>
+<li>Metrics of all any time can be queries via this including yesterday, today, current_hour and even current minute.</li>
+</ol>
+</li>
+<li>
+<p><strong>MATERIALIZED</strong> datamart access interface -</p>
+<ol>
+<li>It is based on pre-calculated metrics stored in database.</li>
+<li>It queries already calculated metrics from a metric table by providing a range of metric interval.</li>
+<li>There are no limitations on range of metrics. Eg. We can get a metric with with a range of 1 year to make a quarter-on-quarter trend</li>
+<li>Metrics are available of DAY BEFORE YESTERDAY and BEFORE i.e. (&lt;T-1/&lt;=T-2). In other words metrics of today and yesterday are not available in this.
+<ol>
+<li>The metrics is calculated at day level of previous day. So each day, the previous day&rsquo;s metrics is calculated and stored.
+We cannot the previous day metric too because, we don&rsquo;t know when that metric is scheduled. It could be at 1:00, 5:00, 11:00, 14:00 or whatever.
+1 full day is reserved for the metric to get calculated and get saved.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="convention-naming-for-_live_-datamart-interfaces">
+  Convention naming for <em>LIVE</em> datamart interfaces
+  <a class="anchor" href="#convention-naming-for-_live_-datamart-interfaces">#</a>
+</h4>
+<p>For dm schema -</p>
+<blockquote>
+<p><strong>dm.{metric_name}__for_{entity}__for_{duration}</strong></p>
+</blockquote>
+<p>Examples:</p>
+<pre><code class="language-postgres-psql" data-lang="postgres-psql">dm.fdds_cod__for_facility_ids__for_day('{IND148101AAA, INHPAADY}',CURRENT_DATE)
+dm.fdds_cod__for_client_ids__for_day('{AMAZON, SNAPDEAL_SURFACE}','2020-02-25')
+</code></pre><p>For {user_schema} schema -</p>
+<blockquote>
+<p><strong>user_schema}.{user_schema}__{metric_name}__for_{entity}__for_{duration}</strong></p>
+</blockquote>
+<p>Example:</p>
+<pre><code class="language-postgres-psql" data-lang="postgres-psql">stm.stm__fdds_cod__for_facility_ids__for_day('{IND148101AAA, INHPAADY}',CURRENT_DATE)
+</code></pre><h4 id="convention-naming-for-_materialized_-datamart-interfaces">
+  Convention naming for <em>MATERIALIZED</em> datamart interfaces
+  <a class="anchor" href="#convention-naming-for-_materialized_-datamart-interfaces">#</a>
+</h4>
+<p>For {user_schema} schema -</p>
+<blockquote>
+<p><strong>{user_schema}.{user_schema}__{metric_name}__for_{entity}__for_range__at_day_level</strong>
+<strong>{user_schema}.{user_schema}__{metric_name}__for_{entity}__for_range__for_granularity</strong></p>
+</blockquote>
+<blockquote>
+<p>Examples:</p>
+</blockquote>
+<pre><code class="language-postgres-psql" data-lang="postgres-psql">stm.stm__fdds_cod__for_facility_ids__for_range__at_day_level({'IND148101AAA, INHPAADY'},'2020-03-25','2020-03-28')
+stm.stm__fdds_cod__for_facility_ids__for_range__for_granularity({'IND148101AAA, INHPAADY'},'2020-03-25 12:00:00','2020-03-28 13:00:00','1m')
+</code></pre><h4 id="creating-the-datamarts---working-examples">
+  Creating the datamarts - (Working Examples)
+  <a class="anchor" href="#creating-the-datamarts---working-examples">#</a>
+</h4>
+<h5 id="live">
+  LIVE
+  <a class="anchor" href="#live">#</a>
+</h5>
+<p>Creating the datamart in <em><strong>dm</strong></em> schema -</p>
+<pre><code class="language-postgres-psql" data-lang="postgres-psql">--BOILER_PLATE_CODE
+CREATE OR REPLACE FUNCTION dm.fdds_cod__for_facility_ids__for_day(facility_ids_filter text[],ist_date_filter DATE)  
+RETURNS SETOF RECORD AS
+$func$
+DECLARE
+    utc_timestamp_filter timestamp := ist_date_filter - interval '330' MINUTE;
+BEGIN
+RETURN  QUERY
+
+-- YOUR_QUERY_STARTS_HERE
+-- explain analyze
+SELECT *
+FROM (
+	SELECT DATE (fadt) dt, &quot;cs_slid&quot;, count(wbn) volume, sum(CASE 
+				WHEN (
+						ss = 'Delivered'
+						AND DATE (fadt) = DATE (ldd)
+						)
+					THEN 1
+				ELSE 0
+				END) fdd
+	FROM (
+		SELECT cs_slid, wbn, mwn, date_fadt, dd_dct dct, cs_sd sd, dd_fdd, cs_ss ss, (date_fadt + interval '330' MINUTE) fadt, (ldd + interval '330' MINUTE) ldd, row_number() OVER (
+				PARTITION BY wbn ORDER BY action_date DESC
+				) AS ROW
+		FROM (
+			SELECT cs_slid, wbn, mwn, date_fadt, dd_dct, cs_sd, dd_fdd, cs_ss, ldd, pt, action_date, cnid, cl
+			FROM raw_u.package_scan__wbn_cs_uid__latest_u
+			WHERE action_date &gt;= cast(extract(epoch FROM ((date_trunc('day', (utc_timestamp_filter + interval '330' MINUTE)) - interval '0' DAY) - interval '330' MINUTE)) * 1000000 AS BIGINT)
+				AND action_date &lt; cast(extract(epoch FROM ((date_trunc('day', (utc_timestamp_filter + interval '330' MINUTE)) + interval '1' DAY) - interval '330' MINUTE)) * 1000000 AS BIGINT)
+				AND &quot;cs_slid&quot;  = any (facility_ids_filter)
+			) p
+		WHERE cnid = &quot;cs_slid&quot;
+			AND cl NOT IN ('DELHIVERY INTERCHANGE B2B', 'DUMMY B2B', 'DLV Internal Test', 'WalletTest3', 'Delhivery E POD', 'Delhivery', 'Delhivery E POD', 'DEL LS', 'FTPL XB EXPRESS', 'SNAPDEALXB EXPRESS', 'URBANIC XB EXPRESS', 'PRICE DROP XB EXPRESS', 'ANSERX XB B2B', 'CHUMXB EXPRESS')
+			AND cs_sd &gt;= ((utc_timestamp_filter + interval '330' MINUTE)::DATE - interval '0' DAY) - interval '330' MINUTE
+			AND pt IN ('COD')
+		) AS REF
+	WHERE ROW = 1
+		AND (
+			mwn IS NULL
+			OR mwn = wbn
+			)
+		AND date_fadt &gt;= ((utc_timestamp_filter + interval '330' MINUTE)::DATE - interval '0' DAY) - interval '330' MINUTE
+	GROUP BY cs_slid, DATE (fadt)
+	) fds;
+
+
+--BOILER_PLATE_CODE
+END;
+$func$ LANGUAGE plpgsql VOLATILE;
+</code></pre><p>Creating the exposed datamart in <em><strong>stm</strong></em> schema by accessing the above datamart</p>
+<pre><code class="language-postgres-psql" data-lang="postgres-psql">--BOILER_PLATE_CODE
+CREATE OR REPLACE FUNCTION stm.stm__fdds_cod__for_facility_ids__for_day(facility_ids_filter text[],date_filter DATE)
+RETURNS TABLE (dt DATE,cs_slid text,volume bigint,fdd bigint) AS
+$func$ 
+#variable_conflict use_column
+BEGIN
+RETURN QUERY
+
+-- YOUR_QUERY_STARTS_HERE
+SELECT dt,cs_slid,volume,fdd 
+from dm.fdds_cod__for_facility_ids__for_day(facility_ids_filter,date_filter) f(dt DATE,cs_slid text,volume bigint,fdd bigint);
+
+--BOILER_PLATE_CODE
+END;
+$func$ LANGUAGE plpgsql VOLATILE;
+</code></pre><h5 id="materialized">
+  MATERIALIZED
+  <a class="anchor" href="#materialized">#</a>
+</h5>
+<p>For creation of datamarts based on materialized datamart access interface refer <a href="./metric_table-design-and-usage.md">metric_table-and-materialized-datamarts</a></p>
+<h4 id="queries-from-application-code-with-stm-user--">
+  Queries from Application Code with stm user -
+  <a class="anchor" href="#queries-from-application-code-with-stm-user--">#</a>
+</h4>
+<p>LIVE</p>
+<pre><code class="language-postgres-sql" data-lang="postgres-sql">-- Accessing Today's Metric for facitlities - IND148101AAA, INHPAADY, IN152026A1C
+SELECT dt,cs_slid,volume,fdd from stm__fdds_cod__for_facility_ids__for_day('{IND148101AAA, INHPAADY, IN152026A1C}',CURRENT_DATE)
+
+-- Accessing Yesterday's Metric for facitlities - IND148101AAA, INHPAADY, IN152026A1C
+SELECT dt,cs_slid,volume,fdd, trunc(((fdd::float4/volume::float4)*100)::numeric,2) as &quot;fdd%&quot; from stm__fdds_cod__for_facility_ids__for_day('{IND148101AAA, INHPAADY, IN152026A1C}',CURRENT_DATE-1);
+
+-- Accessing 2021-04-07 Metric for facitlities - IND148101AAA, INHPAADY, IN152026A1C
+SELECT dt,cs_slid,volume,fdd from stm__fdds_cod__for_facility_ids__for_day('{IND148101AAA, INHPAADY, IN152026A1C}','2021-04-07')
+
+</code></pre><p>MATERIALIZED</p>
+<pre><code class="language-postgres-sql" data-lang="postgres-sql">-- Accessing Metric of range 2021-04-05 to 2021-04-07  for facitlities - IND148101AAA, INHPAADY, IN152026A1C
+SELECT date_value,facility_id,total as volume,fdds as fdd from stm.stm__fdds_cod__for_facility_ids__for_range__at_day_level('{IND148101AAA, INHPAADY, IN152026A1C}',CURRENT_DATE-10,CURRENT_DATE-1)
+
+</code></pre><p>COMBINED</p>
+<pre><code class="language-postgres-sql" data-lang="postgres-sql">-- Accessing Metric Last 10 days for facitlities - IND148101AAA, INHPAADY, IN152026A1C
+SELECT date_value,facility_id,sum(volume) as volume,sum(fdd) as fdd, trunc(((sum(fdd)::float4/sum(volume)::float4)*100)::numeric,2) as &quot;fdd%&quot; from (
+SELECT dt as date_value,cs_slid as facility_id,volume,fdd from stm__fdds_cod__for_facility_ids__for_day('{IND148101AAA, INHPAADY, IN152026A1C}',CURRENT_DATE-1)
+ UNION ALL
+--# TODO -- This typecast into bigint should not be required since function will already do it inside
+SELECT date_value,facility_id,total::bigint as volume,fdds::bigint as fdd from stm.stm_fdds_cod__for_facility_ids__for_range__at_day_level('{IND148101AAA, INHPAADY, IN152026A1C}',CURRENT_DATE-10,CURRENT_DATE-1)
+ ) fv
+group by 1,2 
+</code></pre><blockquote>
+<p>Note: Schema name <strong>stm.</strong> is not required i.e. when the user access its own named schema</p>
+</blockquote>
+<h4 id="creating-the-datamart-for-datacatalog-catalogdelhiverycom">
+  Creating the datamart for Datacatalog (catalog.delhivery.com)
+  <a class="anchor" href="#creating-the-datamart-for-datacatalog-catalogdelhiverycom">#</a>
+</h4>
+<p>The datacatalog would require views for displaying sameple/dummy data from a datamart.
+So a view should be <strong>created by datamart authors</strong> to list it into datacatalog.
+The datamart authors also have to write datamart description, column description etc. in datacatalog.</p>
+<pre><code class="language-postgres-sql" data-lang="postgres-sql">CREATE OR replace  view dm.b2b_center_connect as
+select * from stm.b2b_center_connect_for_facility_ids((select array_agg(property_facility_facility_code) from raw_u.facility__facility_code__latest_u),CURRENT_DATE); 
+</code></pre><h5 id="why-functions-and-not-views-for-database-">
+  Why FUNCTIONS? and NOT VIEWS for database ?
+  <a class="anchor" href="#why-functions-and-not-views-for-database-">#</a>
+</h5>
+<ol>
+<li>
+<p>Views are limited when passing filter arguments like facility_ids, client_ids in query while putting WHERE clause while querying the views.</p>
+<p>Since postgres re-writes every query it pushes this filter parameter inside and filters at the initial level. However, this doesn&rsquo;t happen everytime specially the queries in which we do a window function filter or complex aggregates.
+If postgres doesn&rsquo;t understand to put the filter in the initial level, then it calculates the result for all facilties/clients and then later on filters the output  leading to increased response times.</p>
+</li>
+<li>
+<p>Increasing Vulnerability and decreasing enforcement on how to query datamart -
+If we use views it is upto the user that it specifies the facilities_ids/clients_ids. A user is free to query data of all centers and take all data into application and then filter in application, which is anti-pattern and leads to high execution time.</p>
+</li>
+<li>
+<p>Views makes more problems to update than functions.
+Whenever we update the column type, order of columns, or number of columns views doesn&rsquo;t allow us to replace on the fly.
+In functions, with datamarts written in dm schema, they are schemaless so updating them is easier.</p>
+</li>
+</ol>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#datamarts-creationupdation-in-dmdb">DataMarts Creation/Updation in DMDB</a>
+      <ul>
+        <li></li>
+        <li><a href="#schemas-in-datamarts-that-users-should-be-aware-of">Schemas in Datamarts that users should be aware of</a></li>
+        <li><a href="#datamart-access-interfaces-in-_dm_-schema-and-_user_schema_">Datamart Access Interfaces in <em>dm</em> schema and <em>{user_schema}</em></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Please read USE CASES and PROBLEM ANALYSIS of DB DESIGN  before reading this.
+ Partitioning Db Design Solutioning HLD #  Solution in 1 liner: Global Indexes in a combination to hash-partitioned tables #  Terminologies #   partitioned -&gt; The partitioned refers to the table is partitioned, mostly with hash based partitioning
+  global -&gt; Global means non-partitioned table primarily made to access it&rsquo;s indexes">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Db-Design-Solution" />
+<meta property="og:description" content="Please read USE CASES and PROBLEM ANALYSIS of DB DESIGN  before reading this.
+ Partitioning Db Design Solutioning HLD #  Solution in 1 liner: Global Indexes in a combination to hash-partitioned tables #  Terminologies #   partitioned -&gt; The partitioned refers to the table is partitioned, mostly with hash based partitioning
+  global -&gt; Global means non-partitioned table primarily made to access it&rsquo;s indexes" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://mritunjay583.github.io/docs/docs/developer/db-design-solution-hld/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2019-03-26T08:47:11&#43;01:00" />
+<meta property="article:modified_time" content="2019-03-26T08:47:11&#43;01:00" />
+
+<title>Db-Design-Solution | DATAMART</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e246e6a45b940b6ff71d8216783f10a80d910290a7c364c8bfd5d305d8545d62.css" integrity="sha256-4kbmpFuUC2/3HYIWeD8QqA2RApCnw2TIv9XTBdhUXWI=">
+<script defer src="/en.search.min.04dea4370b56e4f2b68a0b04d656bed9137be5574171370858866b5246cce744.js" integrity="sha256-BN6kNwtW5PK2igsE1la&#43;2RN75VdBcTcIWIZrUkbM50Q="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>DATAMART</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6d87ea0de7b98d214d87150d1024f51e" class="toggle" checked />
+    <label for="section-6d87ea0de7b98d214d87150d1024f51e" class="flex justify-between">
+      <a href="http://mritunjay583.github.io/docs/docs/" class="">Docs</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-76e70ba71162eb688a4952e5576fd6b7" class="toggle" checked />
+    <label for="section-76e70ba71162eb688a4952e5576fd6b7" class="flex justify-between">
+      <a href="http://mritunjay583.github.io/docs/docs/developer/" class="">Developer</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/db-design-solution-hld/" class=" active">Db-Design-Solution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/db-design-use-case-problem-analysis/" class="">db-design-use-case-problem-analysis</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/documentation-publish/" class="">documentation publish</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/outcomes-limitations-support/" class="">outcomes limitations support</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/roadmap/" class="">Roadmap</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e9be04ad509fc93ce902011efeae48af" class="toggle"  />
+    <label for="section-e9be04ad509fc93ce902011efeae48af" class="flex justify-between">
+      <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/" class="">Usage Guidelines</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/create-indexes-in-dmdb-guidlines/" class="">create index in dmdb</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/datamarts-creations-guidelines/" class="">datamart creation guidelines</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/dmdb-usage-guide/" class="">dmdb usage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/metric_table-design-and-usage/" class="">metric table design</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/navigation-around-views-and-tables/" class="">navigation-around-views-and-tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/api/offset-management-apis-usage/" class="">Offset management</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/programmatic-access-and-integration/" class="">programmatic access and Integration</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Db-Design-Solution</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#partitioning-db-design-solutioning-hld">Partitioning Db Design Solutioning HLD</a>
+      <ul>
+        <li></li>
+        <li><a href="#terminologies">Terminologies</a></li>
+        <li><a href="#sample-db-design-and-explanation">Sample DB Design and Explanation</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><blockquote>
+<p>Please read <a href="db-design-use-case-problem-analysis.md">USE CASES and PROBLEM ANALYSIS of DB DESIGN </a> before reading this.</p>
+</blockquote>
+<h2 id="partitioning-db-design-solutioning-hld">
+  Partitioning Db Design Solutioning HLD
+  <a class="anchor" href="#partitioning-db-design-solutioning-hld">#</a>
+</h2>
+<h6 id="solution-in-1-liner-global-indexes-in-a-combination-to-hash-partitioned-tables">
+  Solution in 1 liner: Global Indexes in a combination to hash-partitioned tables
+  <a class="anchor" href="#solution-in-1-liner-global-indexes-in-a-combination-to-hash-partitioned-tables">#</a>
+</h6>
+<h3 id="terminologies">
+  Terminologies
+  <a class="anchor" href="#terminologies">#</a>
+</h3>
+<blockquote>
+<p><em>partitioned</em> -&gt; The partitioned refers to the table is partitioned, mostly with hash based partitioning</p>
+</blockquote>
+<blockquote>
+<p><em>global</em>  -&gt; Global means non-partitioned table primarily made to access it&rsquo;s indexes</p>
+</blockquote>
+<p>Every pipeline will require 2 tables namely {pipeline_name}._prtd and {pipeline_name}._gbl</p>
+<h3 id="sample-db-design-and-explanation">
+  Sample DB Design and Explanation
+  <a class="anchor" href="#sample-db-design-and-explanation">#</a>
+</h3>
+<h4 id="create-the-schemas">
+  Create the schemas
+  <a class="anchor" href="#create-the-schemas">#</a>
+</h4>
+<pre><code class="language-postgres-sql" data-lang="postgres-sql">-- Trying not to create anything in public schema. Trying to keep things clean, and controlled from start 
+create schema partitioned;
+create schema partitions;
+create schema subpartitions;
+create schema global;
+create schema raw; -- aka base datamart 
+create schema dm; -- aka Intermediate data marts
+-- create  schema eye; -- aka exposed datamart. This should be mapped with username one to one 
+</code></pre><h4 id="creating-partitioned-table-of-pipeline">
+  Creating partitioned table of pipeline
+  <a class="anchor" href="#creating-partitioned-table-of-pipeline">#</a>
+</h4>
+<pre><code class="language-postgres-psql" data-lang="postgres-psql">-- Creating a separate schema to distinguish b/w normal tables and partitioned 
+-- Also adds scope for better privelege control
+
+create TABLE partitioned.package_prtd (
+wbn text, 
+&quot;cs.st&quot; text,
+&quot;cs.ss&quot; text,
+cl text,
+&quot;cs.uid&quot; text,
+action_date bigint,
+&quot;cs.sd&quot; timestamp,
+cd timestamp,
+event_type text
+) PARTITION BY RANGE (action_date);
+
+-- Used to get the epochs in microseconds
+--select (extract(epoch from '2020-12-01'::timestamp)*1000000)::bigint; 
+
+CREATE TABLE partitions.package_2020_12_01_to_2020_12_05 PARTITION OF partitioned.package_prtd
+FOR VALUES FROM (1606780800000000) TO (1607126400000000) PARTITION BY HASH(cl);
+
+CREATE TABLE partitions.package_2020_12_05_to_2020_12_10 PARTITION OF partitioned.package_prtd
+FOR VALUES FROM (1607126400000000) TO (1607558400000000)  PARTITION BY HASH(cl);
+ 
+-- Make default partition for safety. Ideally when partitioned on action_date this should not be used
+CREATE TABLE partitions.package_default_partition PARTITION OF partitioned.package_prtd DEFAULT;
+
+-- Creating a separate schema for partitions to make sure we don't clutter up the schema user is seeing
+-- This is supposed to be an internal schema and no user should be interested in seeing this  
+
+create TABLE subpartitions.package_2020_12_01_to_2020_12_05__00 PARTITION OF partitions.package_2020_12_01_to_2020_12_05
+    FOR VALUES with (MODULUS 3, REMAINDER 0);
+create TABLE subpartitions.package_2020_12_01_to_2020_12_05__01 PARTITION OF partitions.package_2020_12_01_to_2020_12_05
+    FOR VALUES with (MODULUS 3, REMAINDER 1);
+create TABLE subpartitions.package_2020_12_01_to_2020_12_05__02 PARTITION OF partitions.package_2020_12_01_to_2020_12_05
+    FOR VALUES with (MODULUS 3, REMAINDER 2);
+
+
+create TABLE subpartitions.package_2020_12_05_to_2020_12_10__00 PARTITION OF partitions.package_2020_12_05_to_2020_12_10
+    FOR VALUES with (MODULUS 3, REMAINDER 0);
+create TABLE subpartitions.package_2020_12_05_to_2020_12_10__01 PARTITION OF partitions.package_2020_12_05_to_2020_12_10
+    FOR VALUES with (MODULUS 3, REMAINDER 1);
+create TABLE subpartitions.package_2020_12_05_to_2020_12_10__02 PARTITION OF partitions.package_2020_12_05_to_2020_12_10
+    FOR VALUES with (MODULUS 3, REMAINDER 2);
+
+--Change Note: #TODO Improve This
+-- Partitioning Key =&gt; (action_date, cl, wbn) in above example but on prod the Partitioning Key is =&gt; (action_date,cl,cs.slid,wbn)
+-- Primary Key cannot be made because of partitioning key can be null. 
+--In above case we are using action_date , cl and wbn out of which no key is null but on prod, since we are have cs.slid it can be null
+-- So we didn't create any primary key.
+--Though THe primary key constraint is covered by global table constraint
+
+  -- required for unique index which is eligible for onflict arg
+
+-- Multicolumn partitioning of cl and wbn is thought but requires both to be in query to get pruned. 
+-- Refer [this](https://www.enterprisedb.com/postgres-tutorials/what-multi-column-partitioning-postgresql-and-how-pruning-occurs) 
+</code></pre><blockquote>
+<p>Do not attempt to play on client prefix id as they are broken with aramax integrations. Aramax uses 20-25 client prefix instead of 1</p>
+</blockquote>
+<h4 id="creating-the-global-table-for-pipeline-for-global-indexes">
+  Creating the global table for pipeline (For global indexes)
+  <a class="anchor" href="#creating-the-global-table-for-pipeline-for-global-indexes">#</a>
+</h4>
+<pre><code class="language-postgres-psql" data-lang="postgres-psql">-- This schema shall also contain the function too which is maintaining the sync
+CREATE TABLE global.package_gbl (
+wbn text, 
+cl text,
+action_date bigint,
+&quot;cs.sd&quot; timestamp,
+cd timestamp,
+PRIMARY KEY(wbn)
+);
+
+-- Not creating Primary Key Constraint on Global Table since it's not required. 
+-- Assuming global table will always be in sync with partitioned table
+-- There's also no need for an index because the other indexes should always contain wbn within it
+-- i.e. always create compound (multicolumn) index eg. (cd_sd,cl,wbn) , (action_date, cl,wbn)
+
+-- Sync Functiona 
+CREATE OR REPLACE FUNCTION global.package_prtd_function()
+  RETURNS trigger AS
+$func$
+BEGIN
+   CASE TG_OP
+   WHEN 'INSERT' THEN
+      INSERT INTO global.package_gbl (
+      wbn,cl,action_date,&quot;cs.sd&quot;,cd)
+      VALUES (
+      NEW.wbn,NEW.cl,NEW.action_date,NEW.&quot;cs.sd&quot;,NEW.cd
+      );
+      RETURN NEW;
+   WHEN 'DELETE' THEN
+      DELETE FROM global.package_gbl
+      WHERE  wbn = OLD.wbn;
+      RETURN OLD;
+   WHEN 'UPDATE' THEN 
+      UPDATE global.package_gbl 
+      SET (cl,action_date,&quot;cs.sd&quot;,cd) = (NEW.cl,NEW.action_date,NEW.&quot;cs.sd&quot;,NEW.cd)
+      WHERE  package_gbl.wbn = OLD.wbn;
+      RETURN NEW;
+   ELSE
+        RAISE EXCEPTION 'Unhandled Case in Trigger NEW --&gt; % OLD --&gt; %', NEW, OLD;
+   END CASE;  
+END
+$func$  LANGUAGE plpgsql VOLATILE;
+
+-- Trigger which is attached on partitioned table
+-- Note: Putting a trigger before since insertion should happen in global table to check on constraint
+-- This is done as a PRIMARY(action_date,cl,wbn) is vulnerable as action_date is a running key. So there's a 
+-- chance that a new action_date with same wbn could get enter in case of an application level bug
+-- To stop that we'll insert in global table first since it'll have a unique constraint of wbn     
+-- Note: Trigger have to be on leaf partitions as postgres doesn't support BEFORE partitions on parent partitioned table 
+-- Need postgres 13 for creating triggers on partitioned table    
+CREATE TRIGGER package_2020_12_01_to_2020_12_05__00_trigger
+   BEFORE INSERT OR UPDATE OR DELETE on subpartitions.package_2020_12_01_to_2020_12_05__00
+   FOR EACH  ROW 
+       EXECUTE PROCEDURE global.package_prtd_function();
+
+CREATE TRIGGER package_2020_12_01_to_2020_12_05__01_trigger
+   BEFORE INSERT OR UPDATE OR DELETE on subpartitions.package_2020_12_01_to_2020_12_05__01
+   FOR EACH  ROW 
+       EXECUTE PROCEDURE global.package_prtd_function();
+
+CREATE TRIGGER package_2020_12_01_to_2020_12_05__02_trigger
+   BEFORE INSERT OR UPDATE OR DELETE on subpartitions.package_2020_12_01_to_2020_12_05__02
+   FOR EACH  ROW 
+       EXECUTE PROCEDURE global.package_prtd_function();
+
+CREATE TRIGGER package_2020_12_05_to_2020_12_10__00_trigger
+   BEFORE INSERT OR UPDATE OR DELETE on subpartitions.package_2020_12_05_to_2020_12_10__00
+   FOR EACH  ROW 
+       EXECUTE PROCEDURE global.package_prtd_function();
+
+CREATE TRIGGER package_2020_12_05_to_2020_12_10__01_trigger
+   BEFORE INSERT OR UPDATE OR DELETE on subpartitions.package_2020_12_05_to_2020_12_10__01
+   FOR EACH  ROW 
+       EXECUTE PROCEDURE global.package_prtd_function();
+
+CREATE TRIGGER package_2020_12_05_to_2020_12_10__02_trigger
+   BEFORE INSERT OR UPDATE OR DELETE on subpartitions.package_2020_12_05_to_2020_12_10__02
+   FOR EACH  ROW 
+       EXECUTE PROCEDURE global.package_prtd_function();
+
+-- Trigger of default partition 
+CREATE TRIGGER package_default_partition_trigger
+   BEFORE INSERT OR UPDATE OR DELETE on partitions.package_default_partition
+   FOR EACH  ROW 
+       EXECUTE PROCEDURE global.package_prtd_function();
+
+</code></pre><h4 id="bulk-data-generation">
+  Bulk Data Generation
+  <a class="anchor" href="#bulk-data-generation">#</a>
+</h4>
+<pre><code class="language-postgres-sql" data-lang="postgres-sql">-- Bulk Data Insertion in Partitioned table
+INSERT INTO  partitioned.package_prtd select g+5961810374542,
+(array['PP','UD','DL','PU','RT'])[floor(random() * 5 + 1)],
+(array['Manifested','Not Picked','In Transit','Dispatched','Scheduled','Pending','Delivered'])[floor(random() * 7 + 1)],
+md5((g % 100)::text),
+md5(g::text),
+cast (extract ( epoch from ('2020-12-01 14:26:02.960718+00'::timestamp + ( g || ' second' ) :: interval))*1000000 as bigint),
+'2020-12-01 14:26:02.960718+00'::timestamp + ( g || ' milliseconds' ) :: interval,
+'2020-12-01 14:26:02.960718+00'::timestamp + ( g || ' second' ):: interval
+from generate_series(1,1000000) as g;
+
+-- This is bulk insertion for package_gbl. Usually not required since 
+-- trigger will make the data available in global table too.
+-- INSERT INTO  global.package_gbl select g+5961810374542,md5(g::text),g*999,CURRENT_TIMESTAMP - ( g || ' second' ) :: interval,CURRENT_TIMESTAMP - ( g || ' second' ) :: interval from generate_series(1,1000000) as g;
+
+--Sample INSERT on conflict query 
+--INSERT INTO partitioned.package_prtd values (
+-- '7269364714286','DL','RTO','SNAPDEAL SURFACE','scan::1f7d9f0f-670a-48e2-9143-480ed932e3c4','1606309512002468','2020-11-25 13:05:12.407','2020-11-13 12:49:54.19'
+-- )
+--ON CONFLICT (cd,cl,wbn)
+--DO UPDATE SET
+--wbn = EXCLUDED.wbn,
+--&quot;cs.st&quot; = EXCLUDED.&quot;cs.st&quot;,
+--&quot;cs.ss&quot;= EXCLUDED.&quot;cs.ss&quot;,
+--cl = EXCLUDED.cl,
+--&quot;cs.uid&quot; = EXCLUDED.&quot;cs.uid&quot;,
+--action_date = EXCLUDED.action_date,
+--&quot;cs.sd&quot; = EXCLUDED.&quot;cs.sd&quot;,
+--cd = EXCLUDED.cd;
+</code></pre><h4 id="creating-the-index-on-partitioned-table">
+  Creating the Index on partitioned table
+  <a class="anchor" href="#creating-the-index-on-partitioned-table">#</a>
+</h4>
+<pre><code class="language-postgres-sql" data-lang="postgres-sql">-- Creating index on wbn only because the partitioning already know the path to right partition so
+-- this index will be used after reaching the partition in case of update / delete / select
+create INDEX package_prtd_wbn_btree_idx ON partitioned.package_prtd using btree(wbn) ;
+
+-- Another list of index - make more as per needs - but since we know action_Date, cl and cs.slid are most queried 
+-- We'll start with those
+create INDEX package_prtd_action_date_btree_idx ON partitioned.package_prtd using btree(action_date) ;
+create INDEX package_prtd_cl_btree_idx ON partitioned.package_prtd using btree(cl) ;
+create INDEX package_prtd_cs_slid_btree_idx ON partitioned.package_prtd using btree(&quot;cs.slid&quot;) ;
+</code></pre><p>Test Queries -&gt;</p>
+<p><code>explain analyze select * from partitioned.package_prtd where action_date &gt; 1606832764960717 and action_date  &lt; 1606832764960720 and cl='c81e728d9d4c2f636f067f89cc14862c';</code></p>
+<p><code>explain analyze select * from partitioned.package_prtd where action_date &gt; 1606832764960717 and action_date  &lt; 1606832764960720 and cl='c81e728d9d4c2f636f067f89cc14862c' and wbn ='5961810374544';</code></p>
+<blockquote>
+<p>While it is known, hash indexes are faster for lookups than btree, refer <a href="https://www.enterprisedb.com/blog/postgresql-indexes-hash-indexes-are-faster-btree-indexes">this</a> but they cannot be used in neither in cl nor in wbn because people query somtimes on pattern like for <strong>cl</strong> <em>'%AMAZON%'</em> and for <strong>wbn</strong> <em>&lsquo;1337%'</em></p>
+</blockquote>
+<h4 id="indexes-on-global-table">
+  Indexes on Global Table
+  <a class="anchor" href="#indexes-on-global-table">#</a>
+</h4>
+<pre><code class="language-postgres-sql" data-lang="postgres-sql">-- We need indexes for lookups of wbn to pick based on range
+-- Each time user needs a new column as a primary filter it need 
+-- to have in global table and create a global index on it.
+
+-- Always create index containing the action_date,cl,wbn so we never go the global table actually
+
+-- This index is used for update query 
+create index package_gbl_action_date_cl_wbn_btree_idx on global.package_gbl using btree ( action_date,cl,wbn);
+
+-- These index are used primarily for select when action_Date is not the first level priliminary filter
+create index package_gbl_cs_sd_action_date_cl_wbn_btree_idx on global.package_gbl using btree ( &quot;cs.sd&quot;,action_date,cl,wbn);
+-- TODO Check if wbn is required
+create index package_gbl_cd_action_date_cl_wbn_btree_idx on global.package_gbl using btree ( cd,action_date,cl,wbn);
+create index package_gbl_wbn_action_date_cl_btree_idx on global.package_gbl using btree ( wbn,action_date,cl);
+
+create index package_gbl_wbn_action_date_btree_idx on global.package_gbl using btree ( wbn,action_date);
+</code></pre><blockquote>
+<p>Why Not Brin. See <a href="https://info.crunchydata.com/blog/avoiding-the-pitfalls-of-brin-indexes-in-postgres">this</a>
+Not creating a single index on cl because there seems to be no use-case for people to query all data of a cl. Even if it&rsquo;s there they should use the cs.sd / action_date since default partition has always some old records.</p>
+</blockquote>
+<h5 id="test-queries-of-global-tablenot-including-plans-to-limit-doc-size">
+  Test Queries of global table(not including plans to limit doc size)
+  <a class="anchor" href="#test-queries-of-global-tablenot-including-plans-to-limit-doc-size">#</a>
+</h5>
+<ul>
+<li><code>explain analyze SELECT wbn,cd,cl from global.package_gbl where wbn = '7269364714286';</code></li>
+<li><code>explain analyze select wbn, &quot;cs.sd&quot; from global.package_gbl gp where gp.&quot;cs.sd&quot; &gt; '2020-12-01 14:16:52.488192' and  gp.&quot;cs.sd&quot; &lt; '2020-12-01 14:26:02.988192';</code></li>
+</ul>
+<h4 id="insertingupdating-data">
+  Inserting/Updating Data
+  <a class="anchor" href="#insertingupdating-data">#</a>
+</h4>
+<h5 id="sample-queries---plain-not-used-actually---just-to-create-some-data">
+  Sample queries - Plain (Not Used Actually - Just to create some data)
+  <a class="anchor" href="#sample-queries---plain-not-used-actually---just-to-create-some-data">#</a>
+</h5>
+<pre><code class="language-postgres-sql" data-lang="postgres-sql">-- Use this to view data with partition name and delete 
+-- select tableoid::regclass,* from package_prtd ;
+
+explain analyze INSERT INTO partitioned.package_prtd values (
+ '7269364714286','DL','RTO','SNAPDEAL SURFACE','scan::1f7d9f0f-670a-48e2-9143-480ed932e3c4','1606780800000006','2020-11-02 13:05:12.407','2020-11-01 12:49:54.19','CREATE'
+);
+INSERT INTO partitioned.package_prtd values (
+ '7269364714287','DL','RTO','AMAZON','scan::2f7f9ffdf-670a-48e2-9143-6534gdfgfd','1607126400000000','2020-11-03 13:05:12.407','2020-11-01 12:49:54.19','CREATE'
+);
+
+</code></pre><h5 id="real-queries-which-will-run-from-application">
+  Real Queries which will run from application
+  <a class="anchor" href="#real-queries-which-will-run-from-application">#</a>
+</h5>
+<pre><code class="language-postgres-sql" data-lang="postgres-sql">**INSERT** -
+-- We'll insert every record after checking if there's no record exist 
+-- Though on-conflict with do nothing covers idempotency but there are other cases too described below     
+explain analyze insert into partitioned.package_prtd (col1,col2,col3)
+select 
+     '7269364714286','DL','RTO','SNAPDEAL SURFACE','scan::1f7d9f0f-670a-48e2-9143-480ed932e3c4','1606780800000006','2020-11-02 13:05:12.407','2020-11-01 12:49:54.19','CREATE'
+where not exists (
+    select wbn from global.package_gbl where wbn = '7269364714286' 
+);
+
+
+
+**SELECT**
+-- Getting the current action_date corresponding to wbn which we'll fire update for
+SELECT wbn,action_date,&quot;cs.slid&quot; from global.package_gbl 
+where wbn in( '7269364714286', '7269364714286');  
+
+  
+**UPDATE**
+-- Update query specifiying the right and exact action_Date with equals so that we prune the partition right
+ update partitioned.package_prtd as p 
+SET &quot;cs.st&quot; = 'RT', action_date = 1611659129000104   
+WHERE p.action_date = 1611659129000103
+-- idompotency and unordered data from source handling
+and 1611659129000103 &lt; 1611659129000104
+and &quot;cs.slid&quot; = 'Gurgaon Central'
+and p.cl = 'SNAPDEAL SURFACE'
+and p.wbn = '7269364714286';
+
+
+-- Using Global Table join  (not used in prod) -DEPRECATED 
+explain analyze update partitioned.package_prtd as p 
+SET &quot;cs.st&quot; = 'RT' 
+FROM 
+(SELECT action_date as action_Date from global.package_gbl 
+where  
+ wbn = '7269364714286'
+and cl = 'SNAPDEAL SURFACE'
+and action_date &lt; 1611659129000103
+) gp 
+WHERE
+ p.action_date = gp.action_date 
+and p.action_date &lt; 1611659129000103
+and p.cl = 'SNAPDEAL SURFACE'
+and p.wbn = '7269364714286';
+
+
+-- Using only partitioned table ( Scannning knowing all 1st level partitions) (not used in prod) DEPRECATED
+explain analyze update partitioned.package_prtd as p 
+SET &quot;cs.st&quot; = 'RT' 
+WHERE p.action_date &lt; 1611659129000103
+and p.cl = 'SNAPDEAL SURFACE'
+and p.wbn = '7269364714286';
+
+
+-- Using subquery (not used in prod)  DEPRECATED
+explain analyze update partitioned.package_prtd as p 
+SET &quot;cs.st&quot; = 'RT' 
+WHERE
+ p.action_date = (SELECT action_date from global.package_gbl 
+where  
+action_date &lt;= 1607558400000000
+and cl = 'SNAPDEAL SURFACE'
+and wbn = '7269364714286'
+)   
+and p.cl = 'SNAPDEAL SURFACE'
+and p.wbn = '7269364714286';
+</code></pre><h6 id="cases-covered--">
+  Cases Covered -
+  <a class="anchor" href="#cases-covered--">#</a>
+</h6>
+<ol>
+<li>
+<p>Replay Cases (How to achieve <strong>idempotency</strong>) and Case when data is unordered from the source itself -</p>
+<p>In case of insert we are checking if the record exists in global table or not. If not then only we proceed for insertion.
+In the case of update we are updating the record only when a new action_Date i.e. new action_date greater than existing
+action_date comes, then only we are updating.</p>
+</li>
+<li>
+<p>Case when data older than 6 months -</p>
+<p>In the case when we receive a update after 6 months there&rsquo;s a possibility that record is deleted.
+Because of this case, we always need to run a INSERT before running a UPDATE for every record.
+That is 2 query sets for 1 record.</p>
+</li>
+<li>
+<p>Case when we don&rsquo;t have event_type key -</p>
+<p>We don&rsquo;t care about event_type much because we&rsquo;re inserting every record first and then updating it.
+Though there can be a optimization in future for sources which does send event_type.</p>
+</li>
+</ol>
+<h4 id="combining-the-partitioned-table-and-global-table--creating-the-view">
+  Combining the partitioned table and global table | Creating the view
+  <a class="anchor" href="#combining-the-partitioned-table-and-global-table--creating-the-view">#</a>
+</h4>
+<pre><code class="language-postgres-sql" data-lang="postgres-sql">-- Tried merge Join (by using sort by) and using in operator. 
+--The below uses Nested Loop and offers best performance. See [this](https://www.cybertec-postgresql.com/en/join-strategies-and-performance-in-postgresql/)
+DROP VIEW IF EXISTS raw.package_multidimensional;
+CREATE OR REPLACE view raw.package_multidimensional as 
+SELECT gp.wbn,gp.&quot;cs.sd&quot;,gp.cd,pp.action_date,pp.cl,pp.&quot;cs.uid&quot;,pp.&quot;cs.st&quot;,pp.&quot;cs.ss&quot; from global.package_gbl gp
+JOIN 
+ partitioned.package_prtd pp 
+ON 
+gp.action_date= pp.action_date
+AND gp.cl = pp.cl 
+AND
+ gp.wbn = pp.wbn
+;
+
+DROP VIEW IF EXISTS raw.package_meta;
+-- TODO remove sensitive columns;  
+CREATE OR REPLACE view raw.package_meta as 
+SELECT * from partitioned.package_prtd; 
+
+
+--TODO Make a view with underscore convention for compatibility
+</code></pre><h4 id="selection-of-columns-between-partitioned-and-global-table">
+  Selection of columns between partitioned and global table
+  <a class="anchor" href="#selection-of-columns-between-partitioned-and-global-table">#</a>
+</h4>
+<ul>
+<li>
+<p><strong>cl</strong> -&gt; From partitioned table</p>
+<ul>
+<li>We are using partitioned table cl and not global table cl because it&rsquo;s slightly faster in query test plans,
+the smaller partitioned pkey index is used and in case of direct queries we also have a dedicated index on cl
+as mentioned above.</li>
+<li>There&rsquo;s no dedicated index on cl in global table</li>
+</ul>
+</li>
+<li>
+<p><strong>wbn</strong> -&gt; From global table</p>
+<ul>
+<li>specified above combines index of (wbn,cd,cl) was slightly slower than index on just wbn with a sequential scan on cd,cl.</li>
+<li>Since we have a global wbn index this would give enablement to query only on wbn without any action_date / cd.sd filter</li>
+</ul>
+</li>
+<li>
+<p><strong>action_Date</strong> -&gt; From partitioned table</p>
+<ul>
+<li>Similar to cl we&rsquo;ll prefer cd from partitioned table because it uses partitioned index which will save IO.</li>
+<li>There&rsquo;s no requirement of dedicated cd index because it has one (package_gbl_cl_wbn_btree_idx) which has cd as first key</li>
+<li>In partitioned table also we have the main primary key index which has cd in first position</li>
+</ul>
+</li>
+<li>
+<p><strong>cd</strong> and <strong>cs.sd</strong> -&gt; From global table</p>
+<ul>
+<li>Both the columns have compound indexes starting these column in order</li>
+<li>The cd and cs.sd in partitioned_table is not indexed and no need to NOT be.</li>
+</ul>
+</li>
+</ul>
+<h4 id="final-query-test-with-partition-pruning">
+  Final Query Test with Partition Pruning
+  <a class="anchor" href="#final-query-test-with-partition-pruning">#</a>
+</h4>
+<p>Queries: - &gt;</p>
+<p><code>explain analyze select * from raw.package_multidimensional where action_date &gt; 1606939513960000 and action_Date &lt; 1606939676960718 and cl = 'aab3238922bcc25a6f606eb525ffdc56' ;</code></p>
+<p>Try same query to pruning off to confirm</p>
+<pre><code class="language-postgres-sql" data-lang="postgres-sql">set enable_partition_pruning TO false;
+</code></pre><blockquote>
+<p>There&rsquo;s only a slight increase because of very low number of partitions with very substantially lesser data.</p>
+</blockquote>
+<h4 id="clean-everything">
+  Clean Everything
+  <a class="anchor" href="#clean-everything">#</a>
+</h4>
+<pre><code class="language-postgres-psql" data-lang="postgres-psql">drop schema partitioned cascade;
+drop schema partitions cascade;  
+drop schema subpartitions cascade;
+drop schema global cascade;
+drop schema raw cascade;
+drop schema dm cascade;
+</code></pre><h4 id="extra-sql-for-management--debugging">
+  Extra SQL for management / debugging
+  <a class="anchor" href="#extra-sql-for-management--debugging">#</a>
+</h4>
+<pre><code class="language-postgres-psql" data-lang="postgres-psql">-- Add all schemas to search path for use
+alter role datawarehouse set search_path = &quot;$user&quot;, public, partitioned, subpartitions, partitions, global, raw, dm;
+
+-- Show all schemas
+select schema_name from information_schema.schemata;
+
+-- Hierarchy
+SELECT * FROM pg_partition_root('package_2020_12_01_to_2020_12_05__01');
+SELECT * FROM pg_partition_ancestors('package_2020_12_01_to_2020_12_05__01');
+SELECT * FROM pg_partition_tree('package_prtd');
+
+
+https://www.postgresql.org/docs/current/pageinspect.html
+https://www.postgresql.org/docs/12/pgbuffercache.html
+
+can use the enable_seqscan and enable_indexscan parameters
+</code></pre><h4 id="tuning-configs">
+  Tuning Configs
+  <a class="anchor" href="#tuning-configs">#</a>
+</h4>
+<pre><code class="language-postgres-sql" data-lang="postgres-sql">* SET enable_partitionwise_aggregate=on;
+* SET enable_partitionwise_join=on;
+* SET enable_partition_pruning=on; -- Default is on
+
+wal_compression= on
+https://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Autovacuum
+
+
+#### Possible Optimizations
+* Slid FIlter in update quuery to prune exactly instead of 3 tables. Blocked by null case
+* Do SELECT once for INSERT queries and don't send INSERT queries which are not required
+* 
+
+</code></pre><p>TODO -&gt; REview this <a href="https://www.enterprisedb.com/blog/row-movement-across-postgresql-partitions-made-easy">https://www.enterprisedb.com/blog/row-movement-across-postgresql-partitions-made-easy</a></p>
+<blockquote>
+<p>Please read <a href="outcomes-limitations-support.md">OUTCOMES, LIMITATIONS, SUPPORT</a> after reading this.</p>
+</blockquote>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#partitioning-db-design-solutioning-hld">Partitioning Db Design Solutioning HLD</a>
+      <ul>
+        <li></li>
+        <li><a href="#terminologies">Terminologies</a></li>
+        <li><a href="#sample-db-design-and-explanation">Sample DB Design and Explanation</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

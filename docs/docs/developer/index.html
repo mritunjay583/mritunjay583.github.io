@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Section #  Section renders pages in section as definition list, using title and description.
+Example #  {{&lt; section &gt;}}   Db-Design-Solution  Please read USE CASES and PROBLEM ANALYSIS of DB DESIGN before reading this. Partitioning Db Design Solutioning HLD # Solution in 1 liner: Global Indexes in a combination to hash-partitioned tables # Terminologies # partitioned -&gt; The partitioned refers to the table is partitioned, mostly with hash based partitioning global -&gt; Global means non-partitioned table primarily made to access it&rsquo;s indexes   db-design-use-case-problem-analysis  Project Use Cases # The project is intended for creation and adoption of Datamarts in the org.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://mritunjay583.github.io/docs/docs/developer/" />
+
+<title>Developer | DATAMART</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e246e6a45b940b6ff71d8216783f10a80d910290a7c364c8bfd5d305d8545d62.css" integrity="sha256-4kbmpFuUC2/3HYIWeD8QqA2RApCnw2TIv9XTBdhUXWI=">
+<script defer src="/en.search.min.04dea4370b56e4f2b68a0b04d656bed9137be5574171370858866b5246cce744.js" integrity="sha256-BN6kNwtW5PK2igsE1la&#43;2RN75VdBcTcIWIZrUkbM50Q="></script>
+<link rel="alternate" type="application/rss+xml" href="http://mritunjay583.github.io/docs/docs/developer/index.xml" title="DATAMART" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>DATAMART</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6d87ea0de7b98d214d87150d1024f51e" class="toggle" checked />
+    <label for="section-6d87ea0de7b98d214d87150d1024f51e" class="flex justify-between">
+      <a href="http://mritunjay583.github.io/docs/docs/" class="">Docs</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-76e70ba71162eb688a4952e5576fd6b7" class="toggle" checked />
+    <label for="section-76e70ba71162eb688a4952e5576fd6b7" class="flex justify-between">
+      <a href="http://mritunjay583.github.io/docs/docs/developer/" class="active">Developer</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/db-design-solution-hld/" class="">Db-Design-Solution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/db-design-use-case-problem-analysis/" class="">db-design-use-case-problem-analysis</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/documentation-publish/" class="">documentation publish</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/outcomes-limitations-support/" class="">outcomes limitations support</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/roadmap/" class="">Roadmap</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e9be04ad509fc93ce902011efeae48af" class="toggle"  />
+    <label for="section-e9be04ad509fc93ce902011efeae48af" class="flex justify-between">
+      <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/" class="">Usage Guidelines</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/create-indexes-in-dmdb-guidlines/" class="">create index in dmdb</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/datamarts-creations-guidelines/" class="">datamart creation guidelines</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/dmdb-usage-guide/" class="">dmdb usage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/metric_table-design-and-usage/" class="">metric table design</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/navigation-around-views-and-tables/" class="">navigation-around-views-and-tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/api/offset-management-apis-usage/" class="">Offset management</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/programmatic-access-and-integration/" class="">programmatic access and Integration</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Developer</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#example">Example</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="section">
+  Section
+  <a class="anchor" href="#section">#</a>
+</h1>
+<p>Section renders pages in section as definition list, using title and description.</p>
+<h2 id="example">
+  Example
+  <a class="anchor" href="#example">#</a>
+</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tpl" data-lang="tpl"><span style="color:#75715e">{{</span><span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">section</span> <span style="color:#f92672">&gt;</span><span style="color:#75715e">}}</span>
+</code></pre></div><dl>
+
+  <dt>
+    <a href="/docs/docs/developer/db-design-solution-hld/">Db-Design-Solution</a>
+  </dt>
+  <dd class="markdown-inner">
+    Please read USE CASES and PROBLEM ANALYSIS of DB DESIGN  before reading this.
+ Partitioning Db Design Solutioning HLD #  Solution in 1 liner: Global Indexes in a combination to hash-partitioned tables #  Terminologies #   partitioned -&gt; The partitioned refers to the table is partitioned, mostly with hash based partitioning
+  global -&gt; Global means non-partitioned table primarily made to access it&rsquo;s indexes
+  </dd>
+
+  <dt>
+    <a href="/docs/docs/developer/db-design-use-case-problem-analysis/">db-design-use-case-problem-analysis</a>
+  </dt>
+  <dd class="markdown-inner">
+    Project Use Cases #  The project is intended for creation and adoption of Datamarts in the org. As by definition data mart is a subset of the data warehouse(datalake) and is usually oriented to a specific business line or team. We are moving towards a pattern where people will have access to data limited by tables,columns and even rows (by filtering). For most requirements people won&rsquo;t have access to raw data instead they&rsquo;ll access to aggregated data with limited columns.
+  </dd>
+
+  <dt>
+    <a href="/docs/docs/developer/documentation-publish/">documentation publish</a>
+  </dt>
+  <dd class="markdown-inner">
+    important links #   https://github.com/spring-projects/spring-boot\ https://github.com/jenkinsci/docker https://github.com/kubernetes-client/java/wiki https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/CONTRIBUTING.md https://github.com/outline/outline https://github.com/chrisleekr/binance-trading-bot/wiki https://github.com/chenglou/react-motion https://github.com/invertase/react-native-firebase (can host pages in git hub for each module) https://github.com/docker/docker.github.io https://github.com/attardi/wikiextractor/wiki/File-Format https://angular-calendar.com/docs/index.html https://github.com/compodoc/compodoc https://github.com/angular-ui/angular-google-maps https://github.com/srigumm/dotnetcore-kafka-integration https://github.com/ivangfr/spring-cloud-stream-kafka-elasticsearch https://github.com/kaiwaehner/ksql-fork-with-deep-learning-function    https://github.com/AOSPA/android_kernel_xiaomi_laurel_sprout https://github.com/Apicurio/apicurio-registry/tree/master/docs https://github.com/cloudhut/kowl/tree/master/docs https://github.com/rapid7/metasploit-framework/tree/04e8752b9b74cbaad7cb0ea6129c90e3172580a2/documentation https://github.com/ansible/ansible/tree/devel/docs https://github.com/treasure-data/prestogres#configuration https://github.com/prmr/JetUML https://github.com/remoteintech/remote-jobs/tree/master/site https://github.com/delta-io/delta https://github.com/apache/apisix https://github.com/MuntashirAkon/AppManager https://github.com/ray-project/ray/tree/master/doc https://github.com/cockroachdb/cockroach/tree/master/docs https://github.com/pingcap/tidb https://github.com/strapdata/elassandra/tree/v6.8.4-strapdata/docs https://github.com/scylladb/scylla/tree/master/docs https://github.com/great-expectations/great_expectations/tree/develop/docs https://github.com/pwr-Solaar/Solaar/tree/master/docs https://github.com/Parsely/pykafka https://github.com/thenewboston-developers/thenewboston-python-client https://github.com/joke2k/faker/tree/master/docs https://github.com/confluentinc/ksql/tree/master/docs (mk docs) https://github.com/confluentinc/confluent-kafka-python/tree/master/docs https://github.com/eulerto/pg_similarity https://github.com/orafce/orafce https://github.com/phoronix-test-suite/phoronix-test-suite https://github.com/atlanhq/camelot https://github.com/blackjack4494/yt-dlc https://github.com/brndnmtthws/conky/tree/main/doc https://github.com/gorhill/uBlock https://github.com/facebook/rocksdb/tree/master/docs https://github.com/ether/etherpad-lite/tree/develop/doc https://github.com/facebook/zstd/tree/dev/doc https://github.com/starburstdata/trino/tree/master/docs https://github.com/CZ-NIC/knot-resolver/tree/master/doc https://github.
+  </dd>
+
+  <dt>
+    <a href="/docs/docs/developer/outcomes-limitations-support/">outcomes limitations support</a>
+  </dt>
+  <dd class="markdown-inner">
+    Outcomes #   package_meta - Standard package data  Used when filter on action_date (epoch in microseconds)   Use of action_date column as a preliminary first-level basic filter is required &amp; mandatory.
+  package_multidimensional - Multi-dimensional package data which is supposed to be used only when action_date filter is NOT possible. Used to query package data using ANY BUT AT LEAST one of the following -  cs.
+  </dd>
+
+  <dt>
+    <a href="/docs/docs/developer/roadmap/">Roadmap</a>
+  </dt>
+  <dd class="markdown-inner">
+    Roadmap with Priority , Effort &amp; Timeline #     Objective Priority Effort Timeline Status     Deadlock Prevention Logic P2 3d 30 May    Refactoring of configuration main P2 2d 15 May    New Integration Document P3 1d 12 May In progress   Health Check API P0 5d 7 May In progress   Architecture: * Exploration Documents * Spark documentation - P1 * Videos Links P1 10d Jun    Application tuning for throughput increase P3 3d Jun    Addition of meta columns like topic_name, offset, partitions etc.
+  </dd>
+
+</dl>
+
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#example">Example</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

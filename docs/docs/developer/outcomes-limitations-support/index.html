@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Outcomes #   package_meta - Standard package data  Used when filter on action_date (epoch in microseconds)   Use of action_date column as a preliminary first-level basic filter is required &amp; mandatory.
+  package_multidimensional - Multi-dimensional package data which is supposed to be used only when action_date filter is NOT possible. Used to query package data using ANY BUT AT LEAST one of the following -  cs.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="outcomes limitations support" />
+<meta property="og:description" content="Outcomes #   package_meta - Standard package data  Used when filter on action_date (epoch in microseconds)   Use of action_date column as a preliminary first-level basic filter is required &amp; mandatory.
+  package_multidimensional - Multi-dimensional package data which is supposed to be used only when action_date filter is NOT possible. Used to query package data using ANY BUT AT LEAST one of the following -  cs." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://mritunjay583.github.io/docs/docs/developer/outcomes-limitations-support/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2019-03-26T08:47:11&#43;01:00" />
+<meta property="article:modified_time" content="2019-03-26T08:47:11&#43;01:00" />
+
+<title>outcomes limitations support | DATAMART</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e246e6a45b940b6ff71d8216783f10a80d910290a7c364c8bfd5d305d8545d62.css" integrity="sha256-4kbmpFuUC2/3HYIWeD8QqA2RApCnw2TIv9XTBdhUXWI=">
+<script defer src="/en.search.min.04dea4370b56e4f2b68a0b04d656bed9137be5574171370858866b5246cce744.js" integrity="sha256-BN6kNwtW5PK2igsE1la&#43;2RN75VdBcTcIWIZrUkbM50Q="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>DATAMART</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6d87ea0de7b98d214d87150d1024f51e" class="toggle" checked />
+    <label for="section-6d87ea0de7b98d214d87150d1024f51e" class="flex justify-between">
+      <a href="http://mritunjay583.github.io/docs/docs/" class="">Docs</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-76e70ba71162eb688a4952e5576fd6b7" class="toggle" checked />
+    <label for="section-76e70ba71162eb688a4952e5576fd6b7" class="flex justify-between">
+      <a href="http://mritunjay583.github.io/docs/docs/developer/" class="">Developer</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/db-design-solution-hld/" class="">Db-Design-Solution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/db-design-use-case-problem-analysis/" class="">db-design-use-case-problem-analysis</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/documentation-publish/" class="">documentation publish</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/outcomes-limitations-support/" class=" active">outcomes limitations support</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/developer/roadmap/" class="">Roadmap</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e9be04ad509fc93ce902011efeae48af" class="toggle"  />
+    <label for="section-e9be04ad509fc93ce902011efeae48af" class="flex justify-between">
+      <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/" class="">Usage Guidelines</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/create-indexes-in-dmdb-guidlines/" class="">create index in dmdb</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/datamarts-creations-guidelines/" class="">datamart creation guidelines</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/dmdb-usage-guide/" class="">dmdb usage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/metric_table-design-and-usage/" class="">metric table design</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/navigation-around-views-and-tables/" class="">navigation-around-views-and-tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/api/offset-management-apis-usage/" class="">Offset management</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="http://mritunjay583.github.io/docs/docs/usage-guidelines/programmatic-access-and-integration/" class="">programmatic access and Integration</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>outcomes limitations support</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#resource-allocation-strategies">Resource Allocation Strategies</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h4 id="outcomes">
+  Outcomes
+  <a class="anchor" href="#outcomes">#</a>
+</h4>
+<ol>
+<li><strong>package_meta</strong> - Standard package data
+<ul>
+<li>Used when filter on action_date (epoch in microseconds)</li>
+</ul>
+<blockquote>
+<p>Use of action_date column as a preliminary first-level basic filter is <strong>required &amp; mandatory</strong>.</p>
+</blockquote>
+</li>
+<li><strong>package_multidimensional</strong> - Multi-dimensional package data which is supposed to be used only <strong>when action_date filter is NOT possible</strong>.
+Used to query package data using <strong>ANY BUT AT LEAST</strong> one of the following -
+<ul>
+<li><strong>cs.sd</strong> -&gt; scan timestamp of package scan</li>
+<li><strong>cd</strong> -&gt; package&rsquo;s created timestamp</li>
+<li><strong>wbn</strong> -&gt; waybillnumber which was either created / updated in last 6 months
+<blockquote>
+<p>All the wbns of a particular client ends up a in a single partition so querying for list of wbns of a client it&rsquo;s faster.</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>This is first level preliminary basic filter. As of now other data querying sources support only action_date / ad.</p>
+</blockquote>
+</li>
+<li>When query uses <strong>client key (cl) as a filter</strong>, planning and execution time is significantly reduced.</li>
+<li>Can add more first level preliminary filters at a trade-off to space / IO if highly needed. eg. cs.ud, date_mnd, cs_uid, ad</li>
+</ol>
+<h4 id="query-level-use-cases">
+  Query level use-cases
+  <a class="anchor" href="#query-level-use-cases">#</a>
+</h4>
+<ol>
+<li>ANY query which is <strong>NOT I/O bound</strong>. What that means is the query should return a certainly limited number of records. A ballpark number is <strong>&lt;1000</strong>.
+<ul>
+<li>Please don&rsquo;t get confuse with number of records. The query can scope hundreds of thousands of records but with proper filters.</li>
+</ul>
+</li>
+<li>Since it&rsquo;s still a RDBMS, it can serve hundreds of concurrent (but limited parallel) query executions.</li>
+</ol>
+<h4 id="scalability">
+  Scalability
+  <a class="anchor" href="#scalability">#</a>
+</h4>
+<ul>
+<li>Able to server data of packages created in last <strong>6 months</strong> at <strong>3x</strong> the 2020&rsquo;s peak package scale (though limited by storage cost)</li>
+</ul>
+<h4 id="caveats-and-limitations">
+  Caveats and Limitations
+  <a class="anchor" href="#caveats-and-limitations">#</a>
+</h4>
+<ul>
+<li>Significant Increased maintenance cost -&gt;  Have to main 2 different tables for 1 pipeline and update the view also.</li>
+<li>Keep the sync b/w 2 tables i.e. pipeline partitioned table and it&rsquo;s global table.</li>
+<li>We cannot use detech and drop partitions. Cleanups has to be still on DELETEs.</li>
+<li>Probably some rewrite in dbcleanup</li>
+<li>For every table need to write some implementations, brainstorming, use-case evaluations.</li>
+</ul>
+<h4 id="bloating">
+  Bloating
+  <a class="anchor" href="#bloating">#</a>
+</h4>
+<ul>
+<li>The bloating is concern in mainly global table indexes which needs proper cleanup regularly</li>
+<li>The partitioned table and it&rsquo;s indexes will have significantly low bloating</li>
+</ul>
+<h4 id="probable-concerns">
+  Probable Concerns
+  <a class="anchor" href="#probable-concerns">#</a>
+</h4>
+<ul>
+<li>Implications of Trigger and impact on scale</li>
+</ul>
+<h4 id="perks-and-benefits">
+  Perks and Benefits
+  <a class="anchor" href="#perks-and-benefits">#</a>
+</h4>
+<ul>
+<li>With postgres we get a posix compliant SQL with extremely wide library of functions.</li>
+<li>People are already comfortable in querying from postgres</li>
+</ul>
+<h4 id="what-about-other-pipeline-integration">
+  What about other pipeline integration?
+  <a class="anchor" href="#what-about-other-pipeline-integration">#</a>
+</h4>
+<p>The bag table will be first level partitioned by created date and then second level by bs. The reason is that bag is joined to other tables based on bs.
+Similarly, trips will also be partitioned on created date first and then on trip_uuid at second level.</p>
+<h4 id="infrastructure-limitations-as-of-24-dec-2020">
+  Infrastructure limitations as of 24 Dec 2020
+  <a class="anchor" href="#infrastructure-limitations-as-of-24-dec-2020">#</a>
+</h4>
+<ul>
+<li>We are heavily dependent on pg v12. Partitioning improvements(pruning, join, aggregates) and number of partitions chosen.</li>
+<li>We are looking forward to upgrade for pg v13 too because of more partitioning features. See <a href="https://www.postgresql.org/docs/13/release-13.html#id-1.11.6.6.5">this</a> and v13 is in preview on RDS</li>
+<li>Aurora is still on v11.x so no scope for converting to aurora for a long time.</li>
+<li>pg_partman and pg_cron will be available in RDS with pgv13 soon but no commitments for aurora</li>
+<li>No disk compression extension of postgres in RDS neither zfs FS is supported.</li>
+<li>No multiple disk support in RDS. So all partitions have same storage IO bandwidth.</li>
+</ul>
+<h3 id="resource-allocation-strategies">
+  Resource Allocation Strategies
+  <a class="anchor" href="#resource-allocation-strategies">#</a>
+</h3>
+<ul>
+<li><a href="https://wiki.postgresql.org/wiki/Priorities">Priorities</a> set work mem at user level</li>
+<li>ALTER USER johndoe WITH CONNECTION LIMIT 2;</li>
+<li><a href="https://towardsdatascience.com/how-to-handle-privileges-in-postgresql-with-specific-use-case-and-code-458fbdb67a73">https://towardsdatascience.com/how-to-handle-privileges-in-postgresql-with-specific-use-case-and-code-458fbdb67a73</a></li>
+</ul>
+<h4 id="future-scope">
+  Future Scope
+  <a class="anchor" href="#future-scope">#</a>
+</h4>
+<ul>
+<li>Mandate usage of any of preliminary first level filter columns (seems doesn&rsquo;t exist natively)</li>
+<li>Parallel_workers in postgres create table for new partitions (exploration)</li>
+<li>Cluster based on action_date <a href="https://www.postgresql.org/docs/9.1/sql-cluster.html">this</a></li>
+<li>Explore privelegs and control in depth</li>
+<li>Incorporate Platform use-cases</li>
+<li>RDS Proxy for pooling</li>
+<li>Cluster by on action_Date / cs_ud</li>
+<li>Explore compaction to latest event in the batch before inserting/updating</li>
+<li>Splitting of table into multiple tables based on priority of columns (kind of columnar storage) - Suggested by AWS</li>
+<li>Since we only need partitioned table for query on action_date filter we can avoid replicating global table to niche replicas</li>
+</ul>
+<h1 id="exploration">
+  Exploration
+  <a class="anchor" href="#exploration">#</a>
+</h1>
+<ul>
+<li><a href="https://pghintplan.osdn.jp/pg_hint_plan.html">https://pghintplan.osdn.jp/pg_hint_plan.html</a></li>
+<li>pg_proctab</li>
+<li>pg_repack or better</li>
+<li>pg_stat_statements</li>
+<li>pglogical 2</li>
+<li>pgrowlocks</li>
+<li>pgstattuple</li>
+<li>plv8</li>
+<li>tablefunc</li>
+<li>tsm_system_rows</li>
+<li>tsm_system_time</li>
+<li>uuid-ossp</li>
+<li>amcheck</li>
+<li>postgresql-hll</li>
+</ul>
+<h4 id="costing">
+  Costing
+  <a class="anchor" href="#costing">#</a>
+</h4>
+<p>Refer <a href="https://docs.google.com/spreadsheets/d/1W31iDfLGPRYvIAdFYs-zIhc-KtpYe98hVidLaNGYSKI/edit#gid=0">this</a></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#resource-allocation-strategies">Resource Allocation Strategies</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
