@@ -1,0 +1,62 @@
+---
+title: "documentation publish"
+date: 2019-03-26T08:47:11+01:00
+draft: true
+---
+
+### important links
+-   https://github.com/spring-projects/spring-boot\
+-   https://github.com/jenkinsci/docker
+-   https://github.com/kubernetes-client/java/wiki
+-   https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/CONTRIBUTING.md
+-   https://github.com/outline/outline
+-   https://github.com/chrisleekr/binance-trading-bot/wiki
+-   https://github.com/chenglou/react-motion
+-   https://github.com/invertase/react-native-firebase (can host pages in git hub for each module)
+-   https://github.com/docker/docker.github.io
+-   https://github.com/attardi/wikiextractor/wiki/File-Format
+-   https://angular-calendar.com/docs/index.html
+-   https://github.com/compodoc/compodoc
+-   https://github.com/angular-ui/angular-google-maps
+-   https://github.com/srigumm/dotnetcore-kafka-integration
+-   https://github.com/ivangfr/spring-cloud-stream-kafka-elasticsearch
+-   https://github.com/kaiwaehner/ksql-fork-with-deep-learning-function
+
+----------------------------------------------------------------------
+-   https://github.com/AOSPA/android_kernel_xiaomi_laurel_sprout
+-   https://github.com/Apicurio/apicurio-registry/tree/master/docs
+-   https://github.com/cloudhut/kowl/tree/master/docs
+-   https://github.com/rapid7/metasploit-framework/tree/04e8752b9b74cbaad7cb0ea6129c90e3172580a2/documentation
+-   https://github.com/ansible/ansible/tree/devel/docs
+-   https://github.com/treasure-data/prestogres#configuration
+-   https://github.com/prmr/JetUML
+-   https://github.com/remoteintech/remote-jobs/tree/master/site
+-   https://github.com/delta-io/delta
+-   https://github.com/apache/apisix
+-   https://github.com/MuntashirAkon/AppManager
+-   https://github.com/ray-project/ray/tree/master/doc
+-   https://github.com/cockroachdb/cockroach/tree/master/docs
+-   https://github.com/pingcap/tidb
+-   https://github.com/strapdata/elassandra/tree/v6.8.4-strapdata/docs
+-   https://github.com/scylladb/scylla/tree/master/docs
+-   https://github.com/great-expectations/great_expectations/tree/develop/docs
+-   https://github.com/pwr-Solaar/Solaar/tree/master/docs
+-   https://github.com/Parsely/pykafka
+-   https://github.com/thenewboston-developers/thenewboston-python-client
+-   https://github.com/joke2k/faker/tree/master/docs
+-   https://github.com/confluentinc/ksql/tree/master/docs (mk docs)
+-   https://github.com/confluentinc/confluent-kafka-python/tree/master/docs
+-   https://github.com/eulerto/pg_similarity
+-   https://github.com/orafce/orafce
+-   https://github.com/phoronix-test-suite/phoronix-test-suite
+-   https://github.com/atlanhq/camelot
+-   https://github.com/blackjack4494/yt-dlc
+-   https://github.com/brndnmtthws/conky/tree/main/doc
+-   https://github.com/gorhill/uBlock
+-   https://github.com/facebook/rocksdb/tree/master/docs
+-   https://github.com/ether/etherpad-lite/tree/develop/doc
+-   https://github.com/facebook/zstd/tree/dev/doc
+-   https://github.com/starburstdata/trino/tree/master/docs
+-   https://github.com/CZ-NIC/knot-resolver/tree/master/doc
+-   https://github.com/curl/curl/tree/master/docs
+-   
